@@ -1,4 +1,21 @@
-<html>
-<head><title>Hello, world!</title></head>
-<body><p>Hello, world!</p></body>
-</html>
+---
+layout: default
+title: Kent R. Spillner
+---
+<div id="main">
+  <h1>Blog</h1>
+  <ul class="posts">
+    {% for post in site.posts %}
+      <li>
+        <span>{{ post.date | date_to_string }}</span>
+        &raquo;
+        <a href="/blog{{ post.url }}">{{ post.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <h1>Projects</h1>
+  <ul class="posts">
+    <li><a href="http://github.com/sl4mmy">My projects on GitHub</a></li>
+  </ul>
+</div>
