@@ -2,9 +2,9 @@
 layout: main
 title: Kent R. Spillner
 ---
-<div id="main">
-  <h1>Blog</h1>
-  <ul class="posts">
+<div id="content">
+  <h1>Articles</h1>
+  <ul class="articles">
     {% for post in site.posts %}
       <li>
         <span>{{ post.date | date_to_string }}</span>
@@ -15,7 +15,7 @@ title: Kent R. Spillner
   </ul>
 
   <h1>Projects</h1>
-  <ul class="posts">
+  <ul class="articles">
     <li><a href="http://github.com/sl4mmy">My projects on GitHub</a></li>
   </ul>
 </div>
