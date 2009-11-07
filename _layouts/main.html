@@ -1,62 +1,78 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
 <!--
-  -- Copyright (c) 2009, Kent R. Spillner <kspillner@acm.org>
-  --
-  -- Permission to use, copy, modify, and/or distribute this software for any
-  -- purpose with or without fee is hereby granted, provided that the above
-  -- copyright notice and this permission notice appear in all copies.
-  --
-  -- THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
-  -- WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
-  -- MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
-  -- ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
-  -- WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
-  -- ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
-  -- OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
-  --!>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+  Copyright (c) 2009, Kent R. Spillner <kspillner@acm.org>
+
+  Permission to use, copy, modify, and/or distribute this software for any
+  purpose with or without fee is hereby granted, provided that the above
+  copyright notice and this permission notice appear in all copies.
+
+  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+  -->
+
+<html version="-//W3C//DTD XHTML 1.1//EN" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.w3.org/1999/xhtml http://www.w3.org/MarkUp/SCHEMA/xhtml11.xsd">
 <head>
-   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-   <title>{{ page.title }}</title>
-   <meta name="author" content="Kent R. Spillner" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Kent R. Spillner" />
 
-   <link href="http://feeds.feedburner.com/kent-spillner" rel="alternate" title="Kent R. Spillner" type="application/atom+xml" />
-   <link rel="stylesheet" href="/css/main.css" type="text/css"/>
+        <link rel="alternate" type="application/atom+xml"
+            title="Kent R. Spillner"
+            href="http://feeds.feedburner.com/kent-spillner"/>
+
+        <link rel="stylesheet" type="text/css" href="/styles/main.css"/>
+        <!--[if lte IE 7]>
+        <style type="text/css" media="all">
+                @import "/styles/ie_quirks.css";
+        </style>
+        <![endif]-->
+
+        <title>{{ page.title }}</title>
 </head>
-
 <body>
-<div class="main">
-  <div class="logo">
-    <a href="/">Kent R. Spillner</a>
-    <a class="extra" href="/">home</a>
-  </div>
-  
-  {{ content }}
-  
-  <div class="footer">
-    <div class="contact">
-      <p>
-        Kent R. Spillner<br/>
-        kspillner at acm dot org<br/>
-      </p>
-    </div>
-    <div class="contact">
-      <p>
-        <a href="http://github.com/sl4mmy/">github.com/sl4mmy</a><br/>
-        <a href="http://twitter.com/sl4mmy/">twitter.com/sl4mmy</a><br/>
-      </p>
-    </div>
-    <div class="rss">
-      <a href="http://feeds.feedburner.com/kent-spillner">
-        <img src="/images/rss.png" alt="Subscribe"/>
-      </a>
-    </div>
-  </div>
+<div id="wrapper">
+        <div id="header">
+                <a href="/">Kent R. Spillner</a>
+                <a class="extra" href="/">home</a>
+        </div>
+        <div id="content">
+                {{ content }}
+        </div>
+        <div class="contact">
+                <p>
+                        Kent R. Spillner
+                        <br/>
+                        kspillner at acm dot org
+                </p>
+        </div>
+        <div id="push"></div>
+        <div class="contact">
+                <p>
+                        <a href="http://github.com/sl4mmy/">github.com/sl4mmy</a>
+                        <br/>
+                        <a href="http://twitter.com/sl4mmy/">twitter.com/sl4mmy</a>
+                </p>
+        </div>
+        <div class="rss">
+                <a href="http://feeds.feedburner.com/kent-spillner">
+                        <img src="/images/rss.png" alt="Subscribe"/>
+                </a>
+        </div>
+</div>
+<div id="footer">
+        <p id="copyright">Copyright (c) 2009</p>
 </div>
 <a href="http://github.com/sl4mmy">
-  <img style="position: absolute; top: 0; right: 0; border: 0;"
-    src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"
-    alt="Fork me on GitHub"/>
+        <img style="position: absolute; top: 0; right: 0; border: 0;"
+            src="http://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"
+            alt="Fork me on GitHub"/>
 </a>
 </body>
 </html>

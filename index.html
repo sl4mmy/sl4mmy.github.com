@@ -2,20 +2,18 @@
 layout: main
 title: Kent R. Spillner
 ---
-<div id="content">
-  <h1>Articles</h1>
-  <ul class="articles">
-    {% for post in site.posts %}
-      <li>
-        <span>{{ post.date | date_to_string }}</span>
-        &raquo;
-        <a href="/blog{{ post.url }}">{{ post.title }}</a>
-      </li>
-    {% endfor %}
-  </ul>
+<h1>Articles</h1>
+<ul class="articles">
+        {% for post in site.posts %}
+        <li>
+                <span>{{ post.date | date_to_string }}</span>
+                &raquo;
+                <a href="/blog{{ post.url }}">{{ post.title }}</a>
+        </li>
+        {% endfor %}
+</ul>
 
-  <h1>Projects</h1>
-  <ul class="articles">
-    <li><a href="http://github.com/sl4mmy">My projects on GitHub</a></li>
-  </ul>
-</div>
+<h1>Projects</h1>
+<ul class="articles">
+        <li><a href="http://github.com/sl4mmy">My projects on GitHub</a></li>
+</ul>
