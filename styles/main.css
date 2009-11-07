@@ -102,13 +102,12 @@ p {
 
 .contact {
         float: left;
-        margin-left: 10%;
-        margin-right: 3em;
+        margin: 0 3em 0 10%;
 }
 
 .rss {
         float: right;
-        margin: -1em 10% 0 1em;
+        margin: -1em 10% 0 3em;
 }
 
 .rss img {
