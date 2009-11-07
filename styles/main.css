@@ -112,10 +112,9 @@ p {
 
 .rss {
         float: right;
-        margin: -1em 1em 1em 1em;
+        margin: -1em 10% 1em 1em;
 }
 
 .rss img {
-        border: 1px solid #666;
-        padding: 0px;
+        border: none;
 }
