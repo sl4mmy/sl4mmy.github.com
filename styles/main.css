@@ -32,66 +32,6 @@ html, body {
         line-height: 1.5em;
 }
 
-fieldset {
-        background-color: #EEE;
-        border-style: none;
-        border-top: 2px solid #AAA;
-        margin-bottom: -1em;
-        padding-bottom: 1em;
-}
-
-fieldset ol {
-        list-style: none;
-        padding-left: 1em;
-        padding-top: 3.0em;
-}
-
-fieldset li {
-        padding-bottom: 0.5em;
-}
-
-fieldset.submit {
-        background-color: #FFF;
-        margin: 1em 0 1em;
-        padding-left: 1em;
-        padding-top: 1em;
-}
-
-input {
-        height: 2.25em;
-}
-
-label {
-        display: block;
-}
-
-label em {
-        color: #00A;
-        font-size: 75%;
-        font-style: normal;
-        text-transform: uppercase;
-}
-
-label strong {
-        color: #A00;
-        display: block;
-        font-size: 75%;
-        font-weight: normal;
-        text-transform: uppercase;
-}
-
-legend {
-        color: #333;
-        font-weight: bold;
-        margin-left: 1em;
-}
-
-legend span {
-        font-size: x-large;
-        margin-top: 0.5em;
-        position: absolute;
-}
-
 p {
         margin: 0 0 1.5em;
 }

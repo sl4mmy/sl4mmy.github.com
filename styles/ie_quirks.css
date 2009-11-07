@@ -13,21 +13,3 @@
  * ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
-
-fieldset {
-        position: relative;
-}
-
-fieldset ol {
-        padding-top: 2.75em;
-}
-
-legend {
-        position: relative;
-        left: -7px;
-        top: -0.75em;
-}
-
-legend span {
-        margin-top: 1.25em;
-}
