@@ -1,0 +1,160 @@
+/*
+ * Copyright (c) 2009, Kent R. Spillner <kspillner@acm.org>
+ *
+ * Permission to use, copy, modify, and/or distribute this software for any
+ * purpose with or without fee is hereby granted, provided that the above
+ * copyright notice and this permission notice appear in all copies.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+ * WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+ * MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+ * ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+ * WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ * ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+ * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+ */
+
+/*
+ * Sticky Footer by Ryan Fait
+ * http://ryanfait.com/
+ */
+
+* {
+        margin: 0;
+        padding: 0;
+}
+
+html, body {
+        background-color: #FFF;
+        color: #666;
+        font-family: 'lucida sans unicode', 'lucida grande', helvetica, 'bitstream vera sans', sans-serif;
+        height: 100%;
+        line-height: 1.5em;
+}
+
+fieldset {
+        background-color: #EEE;
+        border-style: none;
+        border-top: 2px solid #AAA;
+        margin-bottom: -1em;
+        padding-bottom: 1em;
+}
+
+fieldset ol {
+        list-style: none;
+        padding-left: 1em;
+        padding-top: 3.0em;
+}
+
+fieldset li {
+        padding-bottom: 0.5em;
+}
+
+fieldset.submit {
+        background-color: #FFF;
+        margin: 1em 0 1em;
+        padding-left: 1em;
+        padding-top: 1em;
+}
+
+input {
+        height: 2.25em;
+}
+
+label {
+        display: block;
+}
+
+label em {
+        color: #00A;
+        font-size: 75%;
+        font-style: normal;
+        text-transform: uppercase;
+}
+
+label strong {
+        color: #A00;
+        display: block;
+        font-size: 75%;
+        font-weight: normal;
+        text-transform: uppercase;
+}
+
+legend {
+        color: #333;
+        font-weight: bold;
+        margin-left: 1em;
+}
+
+legend span {
+        font-size: x-large;
+        margin-top: 0.5em;
+        position: absolute;
+}
+
+p {
+        margin: 0 0 1.5em;
+}
+
+#content {
+        font-size: large;
+        margin: 0 10% 0 10%;
+        padding-top: 5%;
+}
+
+#copyright {
+        color: #FFF;
+        font-size: medium;
+        text-align: center;
+}
+
+#footer {
+        background-color: #AAA;
+        border-top: 5px solid #CCC;
+        clear: both;
+        height: 4em;
+}
+
+#header {
+        background-color: #EEE;
+        border-bottom: 2px solid #AAA;
+        height: 1.5em;
+        left: 0;
+        line-height: 1.5em;
+        text-align: right;
+        top: 0;
+        width: 100%;
+}
+
+#push {
+        height: 4em;
+}
+
+#wrapper {
+        min-height: 100%;
+        height: auto !important;
+        height: 100%;
+        margin: 0 auto -4em;
+}
+
+.center {
+        padding: 2em 0 2em;
+        text-align: center;
+        width: 100%;
+}
+
+.left {
+        float: left;
+        text-align: center;
+        width: 49%;
+}
+
+.right {
+        float: left;
+        text-align: center;
+        width: 49%;
+}
+
+.error {
+        color: #A00;
+}
