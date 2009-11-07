@@ -43,16 +43,17 @@ p {
 }
 
 #copyright {
+        background-color: #AAA;
         color: #FFF;
         font-size: medium;
         text-align: center;
 }
 
 #footer {
-        background-color: #AAA;
         border-top: 5px solid #CCC;
         clear: both;
-        height: 2em;
+        height: 5em;
+        overflow: hidden;
 }
 
 #header {
@@ -99,29 +100,21 @@ p {
         color: #A00;
 }
 
-.footer {
-        font-size: 80%;
-        color: #666;
-        border-top: 4px solid #eee;
-        margin-top: 2em;
-        overflow: hidden;
-}
-
-.footer .contact {
+.contact {
         float: left;
         margin-right: 3em;
 }
 
-.footer .contact a {
+.contact a {
         color: #8085C1;
 }
 
-.footer .rss {
+.rss {
         margin-top: 1.1em;
         margin-right: -.2em;
         float: right;
 }
 
-.footer .rss img {
+.rss img {
         border: 0;
 }
