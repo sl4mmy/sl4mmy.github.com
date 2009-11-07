@@ -52,7 +52,7 @@ p {
         background-color: #AAA;
         border-top: 5px solid #CCC;
         clear: both;
-        height: 4em;
+        height: 2em;
 }
 
 #header {
@@ -67,14 +67,14 @@ p {
 }
 
 #push {
-        height: 4em;
+        height: 2em;
 }
 
 #wrapper {
         min-height: 100%;
         height: auto !important;
         height: 100%;
-        margin: 0 auto -4em;
+        margin: 0 auto -2em;
 }
 
 .center {
