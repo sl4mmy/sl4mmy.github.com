@@ -42,6 +42,11 @@ p {
         padding-top: 5%;
 }
 
+#copyright {
+        margin: 1em 0 0 0;
+        text-align: center;
+}
+
 #footer {
         background-color: #AAA;
         border-top: 5px solid #CCC;
@@ -107,7 +112,7 @@ p {
 
 .rss {
         float: right;
-        margin: 1em 10% 0 3em;
+        margin: 0 10% 0 3em;
 }
 
 .rss img {
