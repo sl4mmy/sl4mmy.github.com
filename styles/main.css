@@ -43,8 +43,6 @@ p {
 }
 
 #copyright {
-        color: #FFF;
-        font-size: medium;
         text-align: center;
 }
 
@@ -52,6 +50,8 @@ p {
         background-color: #AAA;
         border-top: 5px solid #CCC;
         clear: both;
+        color: #FFF;
+        font-size: medium;
         height: 7em;
         overflow: hidden;
 }
