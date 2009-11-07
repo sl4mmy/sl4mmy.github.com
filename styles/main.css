@@ -43,18 +43,17 @@ p {
 }
 
 #copyright {
-        background-color: #AAA;
-        clear: both;
         color: #FFF;
         font-size: medium;
         text-align: center;
 }
 
 #footer {
+        background-color: #AAA;
         border-top: 5px solid #CCC;
         clear: both;
         height: 5em;
-/*        overflow: hidden;*/
+        overflow: hidden;
 }
 
 #header {
