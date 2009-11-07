@@ -52,7 +52,7 @@ p {
         clear: both;
         color: #FFF;
         font-size: medium;
-        height: 7em;
+        height: 4em;
         overflow: hidden;
 }
 
@@ -68,14 +68,14 @@ p {
 }
 
 #push {
-        height: 7em;
+        height: 4em;
 }
 
 #wrapper {
         min-height: 100%;
         height: auto !important;
         height: 100%;
-        margin: 0 auto -7em;
+        margin: 0 auto -4em;
 }
 
 .center {
@@ -108,7 +108,7 @@ p {
 
 .rss {
         float: right;
-        margin: -1em 10% 1em 1em;
+        margin: -1em 10% 0 1em;
 }
 
 .rss img {
