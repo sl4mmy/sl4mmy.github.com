@@ -43,6 +43,7 @@ p {
 }
 
 #copyright {
+        clear: both;
         margin: 1em 0 0 0;
         text-align: center;
 }
