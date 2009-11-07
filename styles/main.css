@@ -54,7 +54,7 @@ p {
         border-top: 5px solid #CCC;
         clear: both;
         height: 5em;
-        overflow: hidden;
+/*        overflow: hidden;*/
 }
 
 #header {
