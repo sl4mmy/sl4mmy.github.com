@@ -98,14 +98,14 @@ p {
 }
 
 #push {
-        height: 6em;
+        height: 3em;
 }
 
 #wrapper {
         min-height: 100%;
         height: auto !important;
         height: 100%;
-        margin: 0 auto -6em;
+        margin: 0 auto -3em;
 }
 
 .contact {
