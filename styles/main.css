@@ -85,6 +85,10 @@ p {
         margin-left: 1em;
 }
 
+#header a.menu:hover {
+        color: #A00;
+}
+
 #push {
         height: 2em;
 }
