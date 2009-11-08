@@ -61,7 +61,7 @@ p {
 
 #copyright {
         color: #6D6D6D;
-        margin: 0 0 5px 0;
+        margin: 0 0 2px 0;
         text-align: center;
 }
 
@@ -98,14 +98,14 @@ p {
 }
 
 #push {
-        height: 4em;
+        height: 6em;
 }
 
 #wrapper {
         min-height: 100%;
         height: auto !important;
         height: 100%;
-        margin: 0 auto -4em;
+        margin: 0 auto -6em;
 }
 
 .contact {
