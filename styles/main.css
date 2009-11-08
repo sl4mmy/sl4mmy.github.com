@@ -29,7 +29,6 @@ html, body {
         color: #6D6D6D;
         font-family: 'lucida sans unicode', 'lucida grande', helvetica, 'bitstream vera sans', sans-serif;
         height: 100%;
-        line-height: 1.5em;
 }
 
 a {
@@ -42,6 +41,7 @@ a:hover {
 }
 
 p {
+        line-height: 1.5em;
         margin: 0 0 1.5em;
         text-align: justify;
 }
@@ -49,10 +49,10 @@ p {
 #content {
         font-size: large;
         margin: 0 10% 0 10%;
-        padding-top: 5%;
 }
 
 #copyright {
+        line-height: 1em;
         margin: 0;
         text-align: center;
 }
@@ -63,12 +63,13 @@ p {
         clear: both;
         color: #FFF;
         font-size: medium;
-        height: 4em;
+        height: 3em;
         overflow: hidden;
 }
 
 #header {
         font-weight: bold;
+        line-height: 1em;
         margin: 1em 10% 2em 10%;
 }
 
@@ -90,19 +91,19 @@ p {
 }
 
 #push {
-        height: 4em;
+        height: 3em;
 }
 
 #wrapper {
         min-height: 100%;
         height: auto !important;
         height: 100%;
-        margin: 0 auto -6.5em;
+        margin: 0 auto -3em;
 }
 
 .contact {
         float: left;
-        margin: 0 3em 0 10%;
+        margin: 0 1em 0 10%;
 }
 
 .contact a {
