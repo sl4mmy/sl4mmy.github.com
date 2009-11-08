@@ -46,6 +46,13 @@ p {
         text-align: justify;
 }
 
+#bottom {
+    background-color: #6D6D6D;
+    border-top: 5px solid #AAA;
+    color: #FFF;
+    padding-bottom: 0.5em;
+}
+
 #content {
         font-size: large;
         margin: 0 10% 0 10%;
@@ -54,18 +61,14 @@ p {
 #copyright {
         color: #6D6D6D;
         line-height: 1em;
-        margin: -2em 0 0 0;
+        margin: 0;
         text-align: center;
 }
 
 #footer {
-        background-color: #6D6D6D;
-        border-top: 5px solid #AAA;
         clear: both;
-        color: #FFF;
         font-size: medium;
         height: 3em;
-        padding-bottom: 0.5em;
 }
 
 #header {
