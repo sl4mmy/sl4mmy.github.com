@@ -99,7 +99,7 @@ p {
         min-height: 100%;
         height: auto !important;
         height: 100%;
-        margin: 0 auto -5em;
+        margin: 0 auto -6em;
 }
 
 .contact {
@@ -113,7 +113,7 @@ p {
 
 .rss {
         float: right;
-        margin: 0 10% 0 3em;
+        margin: -0.1em 10% 0 3em;
 }
 
 .rss img {
