@@ -64,6 +64,7 @@ p {
         color: #FFF;
         font-size: medium;
         height: 3em;
+        padding-bottom: 0.5em;
         overflow: hidden;
 }
 
