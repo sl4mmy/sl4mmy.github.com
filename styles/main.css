@@ -57,17 +57,6 @@ p {
         overflow: hidden;
 }
 
-#header {
-        background-color: #EEE;
-        border-bottom: 2px solid #AAA;
-        height: 1.5em;
-        left: 0;
-        line-height: 1.5em;
-        text-align: right;
-        top: 0;
-        width: 100%;
-}
-
 #push {
         height: 2em;
 }
@@ -77,28 +66,6 @@ p {
         height: auto !important;
         height: 100%;
         margin: 0 auto -6em;
-}
-
-.center {
-        padding: 2em 0 2em;
-        text-align: center;
-        width: 100%;
-}
-
-.left {
-        float: left;
-        text-align: center;
-        width: 49%;
-}
-
-.right {
-        float: left;
-        text-align: center;
-        width: 49%;
-}
-
-.error {
-        color: #A00;
 }
 
 .contact {
@@ -117,4 +84,29 @@ p {
 
 .rss img {
         border: none;
+}
+
+#header {
+  color: #a00;
+  font-weight: bold;
+  margin-bottom: 2em;
+}
+
+#header a {
+    color: #a00;
+    text-decoration: none;
+}
+
+#header a:hover {
+    color: black;
+}
+
+#header a.extra {
+    color: #aaa;
+    text-decoration: none;
+    margin-left: 1em;
+}
+
+#header a.extra:hover {
+color: black;
 }
