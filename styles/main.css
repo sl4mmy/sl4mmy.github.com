@@ -26,14 +26,24 @@
 
 html, body {
         background-color: #FFF;
-        color: #666;
+        color: #6D6D6D;
         font-family: 'lucida sans unicode', 'lucida grande', helvetica, 'bitstream vera sans', sans-serif;
         height: 100%;
         line-height: 1.5em;
 }
 
+a {
+        text-decoration: none;
+}
+
+a:hover {
+        color: #A00;
+        text-decoration: none;
+}
+
 p {
         margin: 0 0 1.5em;
+        text-align: justify;
 }
 
 #content {
@@ -49,12 +59,30 @@ p {
 
 #footer {
         background-color: #6D6D6D;
-        border-top: 5px solid #CCC;
+        border-top: 5px solid #AAA;
         clear: both;
         color: #FFF;
         font-size: medium;
         height: 4em;
         overflow: hidden;
+}
+
+#header {
+        font-weight: bold;
+        margin: 1em 10% 2em 10%;
+}
+
+#header a {
+        color: #A00;
+}
+
+#header a:hover {
+        color: #6D6D6D;
+}
+
+#header a.extra {
+        color: #6D6D6D;
+        margin-left: 1em;
 }
 
 #push {
@@ -84,29 +112,4 @@ p {
 
 .rss img {
         border: none;
-}
-
-#header {
-  color: #a00;
-  font-weight: bold;
-  margin-bottom: 2em;
-}
-
-#header a {
-    color: #a00;
-    text-decoration: none;
-}
-
-#header a:hover {
-    color: black;
-}
-
-#header a.extra {
-    color: #aaa;
-    text-decoration: none;
-    margin-left: 1em;
-}
-
-#header a.extra:hover {
-color: black;
 }
