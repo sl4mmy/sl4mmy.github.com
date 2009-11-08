@@ -53,7 +53,7 @@ p {
         clear: both;
         color: #FFF;
         font-size: medium;
-        height: 3em;
+        height: 4em;
         overflow: hidden;
 }
 
@@ -69,14 +69,14 @@ p {
 }
 
 #push {
-        height: 3em;
+        height: 2em;
 }
 
 #wrapper {
         min-height: 100%;
         height: auto !important;
         height: 100%;
-        margin: 0 auto -4em;
+        margin: 0 auto -2em;
 }
 
 .center {
