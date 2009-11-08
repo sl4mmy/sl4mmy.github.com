@@ -61,8 +61,6 @@ p {
 
 #copyright {
         color: #6D6D6D;
-        line-height: 1em;
-        margin: 0;
         text-align: center;
 }
 
@@ -70,6 +68,7 @@ p {
         clear: both;
         font-size: medium;
         height: 4em;
+        line-height: 1em;
 }
 
 #header {
