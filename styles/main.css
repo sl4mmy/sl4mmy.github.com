@@ -57,14 +57,14 @@ p {
         clear: both;
         color: #FFF;
         font-size: medium;
-        height: 4em;
+        height: 3em;
         margin: 0;
         padding: 0 0 0.5em 0;
 }
 
 #footer p {
         line-height: 1em;
-        margin: 0;
+        margin-bottom: 0;
 }
 
 #header {
@@ -91,14 +91,14 @@ p {
 }
 
 #push {
-        height: 4em;
+        height: 3em;
 }
 
 #wrapper {
         min-height: 100%;
         height: auto !important;
         height: 100%;
-        margin: 0 auto -5em;
+        margin: 0 auto -3em;
 }
 
 .feeds {
