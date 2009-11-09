@@ -56,12 +56,7 @@ p {
 }
 
 #footer {
-        height: 2em;
         margin: 0 10% 0 10%;
-}
-
-#footer hr {
-        margin: 0 25% 0 25%;
 }
 
 #header {
@@ -95,5 +90,5 @@ p {
         min-height: 100%;
         height: auto !important;
         height: 100%;
-        margin: 0 auto -3em;
+        margin: 0 auto -4em;
 }
