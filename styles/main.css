@@ -76,6 +76,10 @@ p {
         margin: 0.25em 0 0.25em;
 }
 
+#footer p a {
+        color: #FFF;
+}
+
 #header {
         font-weight: bold;
         line-height: 1em;
