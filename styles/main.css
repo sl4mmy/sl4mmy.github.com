@@ -51,20 +51,13 @@ p {
         margin: 0 10% 0 10%;
 }
 
-#footer {
-        background-color: #6D6D6D;
-        border-top: 5px solid #AAA;
-        clear: both;
-        color: #FFF;
-        font-size: medium;
-        height: 3em;
-        margin: 0;
-        padding: 0 0 0.5em 0;
+#copyright {
+        text-align: center;
 }
 
-#footer p {
-        line-height: 1em;
-        margin-bottom: 0;
+#footer {
+        height: 1em;
+        margin: 0 10% 0 10%;
 }
 
 #header {
@@ -91,30 +84,12 @@ p {
 }
 
 #push {
-        height: 3em;
+        height: 1em;
 }
 
 #wrapper {
         min-height: 100%;
         height: auto !important;
         height: 100%;
-        margin: 0 auto -3em;
-}
-
-.feeds {
-        float: left;
-        margin: 0 1em 0 10%;
-}
-
-.feeds a {
-        color: #FFF;
-}
-
-.rss {
-        float: right;
-        margin: -0.1em 10% 0 3em;
-}
-
-.rss img {
-        border: none;
+        margin: 0 auto -1em;
 }
