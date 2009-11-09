@@ -49,15 +49,14 @@ p {
 #body {
         height: auto !important;
         height: 100%;
-        margin: 0;
+        margin: 0 auto;
         min-height: 100%;
-        padding: 0;
         position: relative;
 }
 
 #content {
         font-size: large;
-        margin: 0 10% 0 10%;
+        padding: 0 10% 0 10%;
 }
 
 #copyright {
@@ -67,15 +66,13 @@ p {
 #footer {
         bottom: 0;
         position: absolute;
-        margin: 0 10% 0 10%;
-        width: 80%;
+        width: 100%;
 }
 
 #header {
         font-weight: bold;
         line-height: 1em;
-        margin: 1em 10% 2em 10%;
-        width: 100%;
+        padding: 1em 10% 2em 10%;
 }
 
 #header a {
