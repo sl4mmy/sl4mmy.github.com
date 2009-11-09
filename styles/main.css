@@ -49,8 +49,9 @@ p {
 #body {
         height: auto !important;
         height: 100%;
-        margin: 0 auto;
+        margin: 0;
         min-height: 100%;
+        padding: 0;
         position: relative;
 }
 
@@ -66,12 +67,15 @@ p {
 #footer {
         bottom: 0;
         position: absolute;
+        margin: 0 10% 0 10%;
+        width: 100%;
 }
 
 #header {
         font-weight: bold;
         line-height: 1em;
         margin: 1em 10% 2em 10%;
+        width: 100%;
 }
 
 #header a {
