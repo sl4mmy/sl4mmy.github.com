@@ -46,27 +46,16 @@ p {
         text-align: justify;
 }
 
-#bottom {
-    background-color: #6D6D6D;
-    border-top: 5px solid #AAA;
-    color: #FFF;
-    height: 3em;
-    padding-bottom: 0.5em;
-}
-
 #content {
         font-size: large;
         margin: 0 10% 0 10%;
 }
 
-#copyright {
-        color: #6D6D6D;
-        margin: 0 0 2px 0;
-        text-align: center;
-}
-
 #footer {
+        background-color: #6D6D6D;
+        border-top: 5px solid #AAA;
         clear: both;
+        color: #FFF;
         font-size: medium;
         height: 4em;
         line-height: 1em;
@@ -98,22 +87,22 @@ p {
 }
 
 #push {
-        height: 3em;
+        height: 4em;
 }
 
 #wrapper {
         min-height: 100%;
         height: auto !important;
         height: 100%;
-        margin: 0 auto -3em;
+        margin: 0 auto -4em;
 }
 
-.contact {
+.feeds {
         float: left;
         margin: 0 1em 0 10%;
 }
 
-.contact a {
+.feeds a {
         color: #FFF;
 }
 
