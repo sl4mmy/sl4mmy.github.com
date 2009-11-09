@@ -80,6 +80,10 @@ p {
         color: #FFF;
 }
 
+#footer p a:hover {
+        color: #A00;
+}
+
 #header {
         font-weight: bold;
         line-height: 1em;
