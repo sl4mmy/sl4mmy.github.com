@@ -64,14 +64,12 @@ p {
 }
 
 #footer {
+        background-color: #6D6D6D;
+        border-top: 5px solid #AAA;
         bottom: 0;
+        color: #FFF;
         position: absolute;
         width: 100%;
-}
-
-#footer hr {
-        margin-left: 10%;
-        width: 80%;
 }
 
 #header {
