@@ -56,8 +56,12 @@ p {
 }
 
 #footer {
-        height: 3em;
+        height: 2em;
         margin: 0 10% 0 10%;
+}
+
+#footer hr {
+        margin: 0 25% 0 25%;
 }
 
 #header {
