@@ -58,7 +58,6 @@ p {
 #footer {
         height: 3em;
         margin: 0 10% 0 10%;
-        position: relative;
 }
 
 #header {
@@ -85,7 +84,6 @@ p {
 }
 
 #push {
-        clear: both;
         height: 3em;
 }
 
@@ -95,5 +93,4 @@ p {
         height: 100%;
         margin: 0 auto -4em;
         padding-top: 0;
-        position: relative;
 }
