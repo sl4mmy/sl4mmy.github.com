@@ -58,9 +58,13 @@ p {
         color: #FFF;
         font-size: medium;
         height: 4em;
-        line-height: 1em;
         margin: 0;
         padding: 0 0 0.5em 0;
+}
+
+#footer p {
+        line-height: 1em;
+        margin: 0;
 }
 
 #header {
@@ -100,7 +104,6 @@ p {
 .feeds {
         float: left;
         margin: 0 1em 0 10%;
-        padding: 0;
 }
 
 .feeds a {
@@ -110,7 +113,6 @@ p {
 .rss {
         float: right;
         margin: -0.1em 10% 0 3em;
-        padding: 0;
 }
 
 .rss img {
