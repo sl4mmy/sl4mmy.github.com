@@ -56,7 +56,7 @@ p {
 }
 
 #footer {
-        height: 1em;
+        height: 3em;
         margin: 0 10% 0 10%;
 }
 
@@ -84,12 +84,12 @@ p {
 }
 
 #push {
-        height: 1em;
+        height: 3em;
 }
 
 #wrapper {
         min-height: 100%;
         height: auto !important;
         height: 100%;
-        margin: 0 auto -1em;
+        margin: 0 auto -3em;
 }
