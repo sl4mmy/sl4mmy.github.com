@@ -1,0 +1,14 @@
+---
+layout: main
+title: Kent R. Spillner
+---
+<h1>Articles - Life</h1>
+<ul class="articles">
+        {% for post in site.categories.life %}
+        <li>
+                <span>{{ post.date | date_to_string }}</span>
+                &raquo;
+                <a href="/blog{{ post.url }}">{{ post.title }}</a>
+        </li>
+        {% endfor %}
+</ul>
