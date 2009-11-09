@@ -1,0 +1,15 @@
+---
+categories: life, politics, work
+layout: article
+title: GitHub Pages
+---
+
+h1. {{ page.title }}
+
+p(meta). November 9, 2009 - Chicago
+
+After several failed attempts, I've finally found a blogging platform to love: GitHub Pages:http://pages.github.com/.
+
+GitHub Pages:http://pages.github.com/ rocks!  I have complete control over every aspect of the site: the directory layout, the page layout, the structure of permalinks.  Everything is stored in plain text, versioned (courtesy of Git, natch), and available from any computer.  Backups are a cinch.
+
+The sheer awesomeness of GitHub Pages:http://pages.github.com/ and its simplicity of use lower the barrier to blogging enough that I should (finally) be able to start blogging regularly.
