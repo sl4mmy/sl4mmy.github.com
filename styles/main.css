@@ -72,6 +72,10 @@ p {
         width: 100%;
 }
 
+#footer p {
+        margin: 0 0 0.5em;
+}
+
 #header {
         font-weight: bold;
         line-height: 1em;
