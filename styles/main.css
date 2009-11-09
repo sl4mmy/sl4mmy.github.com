@@ -101,3 +101,7 @@ p {
 #header a.menu:hover {
         color: #A00;
 }
+
+.meta {
+        color: #AAA;
+}
