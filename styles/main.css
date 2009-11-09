@@ -46,6 +46,14 @@ p {
         text-align: justify;
 }
 
+#body {
+        height: auto !important;
+        height: 100%;
+        margin: 0 auto;
+        min-height: 100%;
+        position: relative;
+}
+
 #content {
         font-size: large;
         margin: 0 10% 0 10%;
@@ -56,8 +64,10 @@ p {
 }
 
 #footer {
+        bottom: 0;
         height: 3em;
         margin: 0 10% 0 10%;
+        position: absolute;
 }
 
 #header {
@@ -81,16 +91,4 @@ p {
 
 #header a.menu:hover {
         color: #A00;
-}
-
-#push {
-        height: 3em;
-}
-
-#wrapper {
-        min-height: 100%;
-        height: auto !important;
-        height: 100%;
-        margin: 0 auto -4em;
-        padding-top: 0;
 }
