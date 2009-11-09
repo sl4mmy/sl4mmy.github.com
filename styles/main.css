@@ -68,6 +68,7 @@ p {
         bottom: 0;
         position: absolute;
         margin: 0 10% 0 10%;
+        width: 80%;
 }
 
 #header {
