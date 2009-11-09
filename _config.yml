@@ -1,2 +1,4 @@
+destination: blog
+lsi: true
 markdown: rdiscount
 pygments: true
