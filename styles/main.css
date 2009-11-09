@@ -65,9 +65,12 @@ p {
 
 #footer {
         bottom: 0;
-        padding: 0 10% 0 10%;
         position: absolute;
         width: 100%;
+}
+
+#footer hr {
+        width: 80%;
 }
 
 #header {
