@@ -20,4 +20,4 @@ Enter "hippie":http://github.com/sl4mmy/hippie
 
 It is an extension of the automatic build notifications our continuous integration tools provide, only at much, much finer resolution.  "Hippie":http://github.com/sl4mmy/hippie makes it possible to notify Alice on "Team: Tiger" when TigerTests#shouldRespondWithOkStatus() fails, but notify Bob in production support when LegacyTests#shouldAlwaysBeUpAndRunning() fails.
 
-Those "JUnit":http://www.junit.org tests we wrote no longer just prevent us from wasting time debugging service problems, they now kick off a chain of events culminating (hopefully) with someone else fixing the problem: the ultimate goal of every programming endeavor.
+Those "JUnit":http://www.junit.org tests we wrote no longer just prevent us from wasting time debugging service problems, they now kick off a chain of events culminating (hopefully) with someone else fixing the problem.  And _that_ is the ultimate goal of every programming endeavor.
