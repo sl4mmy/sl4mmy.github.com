@@ -10,7 +10,7 @@ layout: main
         <ul class="articles">
                 {% for post in site.related_posts limit:3 %}
                 <li>
-                        <span>{{ post.date | date_to_string }}</span>
+                        <span>{{ post.date | date: "%B %d, %Y" }}</span>
                         &raquo;
                         <a href="{{ post.url }}">{{ post.title }}</a>
                 </li>
