@@ -8,8 +8,12 @@ h1. {{ page.title }}
 
 p(meta). November 9, 2009
 
-After several failed attempts, I've finally found a blogging platform to love: "GitHub Pages":http://pages.github.com/.
+I finally found a blogging platform to love: "GitHub Pages":http://pages.github.com/.
 
-"GitHub Pages":http://pages.github.com/ rocks!  I have complete control over every aspect of the site: the directory layout, the page layout, the structure of permalinks.  Everything is stored in plain text, versioned (courtesy of Git, natch), and available from any computer.  Backups are a cinch.
+"GitHub Pages":http://pages.github.com/ rocks!  It gives me control over every aspect of my site: directory structure, page layout, permalink format.  Everything is stored in plain text, versioned (courtesy of Git, natch), and cloudified.  There is no dumb blog name or stupid subtitle, no biography or mugshot, no comments or tag clouds.  I especially like the lack of comments because the best conversations happen when everyone just listens to me.
 
-The sheer awesomeness of "GitHub Pages":http://pages.github.com/ and its simplicity of use lower the barrier to blogging enough that I should (finally) be able to start blogging regularly.
+The sheer awesomeness of "GitHub Pages":http://pages.github.com/ and its simplicity of use compel me to blog; they also compelled me to upgrade my GitHub account and wire-up a vanity domain.  I resisted lending my voice to the symphony of idiots blogging on the internets for many years, but no more!  "GitHub Pages":http://pages.github.com/ makes it so damn easy, I just can't help myself.  If I fail in this endeavour, if I fail to update regularly or at all, it will be for lack of trying rather than inadequacy of the tool.
+
+The world suffers for lack of access to my opinions.  To make it easier to learn my opinion on a particular subject, blog entries will be categorized as one of: life, politics, or work.  This entry itself is a special case and will be categorized as all three to seed my syndication feeds.  There are separate feeds for each category, and a fourth feed with everything, to provide access to all of my opinions on a topic simultaneously.
+
+You're welcome.
