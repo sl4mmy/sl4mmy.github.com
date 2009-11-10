@@ -10,7 +10,7 @@ p(meta). November 10, 2009
 
 My current project integrates with a lot of external services.  Unfortunately, our service-level agreements do not extend to our development and testing environments, so our application breaks frequently because of service problems.  Services go down, services have bugs in the latest development versions deployed in our environments, our environments are upgraded to new versions of services that are not backwards compatible with the old versions, etc.
 
-We wrote "JUnit":http://www.junit.org tests verifying each service is running correctly in our environments, so we do not waste time debugging problems caused by service failures.  These tests make my team more productive, but unfortunately they do nothing to make the services more reliably.  At least, not by themselves...
+We write "JUnit":http://www.junit.org tests to verify each service is running correctly in our environments, so we do not waste time debugging problems caused by service failures.  These tests make my team more productive, but unfortunately they do nothing to make the services more reliably.  At least, not by themselves...
 
 Enter "hippie":http://github.com/sl4mmy/hippie
 
