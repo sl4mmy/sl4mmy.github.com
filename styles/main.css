@@ -32,7 +32,7 @@ a {
 
 a:hover {
         color: #00A;
-        text-decoration: none;
+        text-decoration: underline;
 }
 
 p {
@@ -73,10 +73,12 @@ p {
 
 #footer p a {
         color: #FFF;
+        text-decoration: none;
 }
 
 #footer p a:hover {
         color: #00A;
+        text-decoration: underline;
 }
 
 #header {
@@ -86,23 +88,21 @@ p {
 }
 
 #header a {
-        color: #00A;
+        color: #6D6D6D;
+        margin-right: 1em;
+        text-decoration: none;
 }
 
 #header a:hover {
-        color: #6D6D6D;
-}
-
-#header a.menu {
-        color: #6D6D6D;
-        margin-left: 1em;
-}
-
-#header a.menu:hover {
         color: #00A;
+        text-decoration: underline;
 }
 
-.article, .articles, .related {
+#related {
+        padding-bottom: 2em;
+}
+
+.article, .articles {
         padding-bottom: 2em;
 }
 
