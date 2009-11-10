@@ -4,7 +4,7 @@ title: Kent R. Spillner
 ---
 <h1>Articles</h1>
 <ul class="articles">
-        {% for post in site.posts %}
+        {% for post in site.posts limit:10 %}
         <li>
                 <span>{{ post.date | date_to_string }}</span>
                 &raquo;
@@ -13,7 +13,19 @@ title: Kent R. Spillner
         {% endfor %}
 </ul>
 
+<h1>Stop Hitting Yourself - Alpha IT Journal</h1>
+<ul class="articles">
+        <li>July 2, 2008 -
+            <a href="http://www.alphaitjournal.com/2008/07/spillner-big-projects-small-increments.html">Big Projects, Small Increments</a>
+        </li>
+        <li>October 1, 2008 -
+            <a href="http://www.alphaitjournal.com/2009/06/spillner-eternal-struggle-between-good.html">The Eternal Struggle Between
+                Good Enough and Perfect</a>
+        </li>
+</ul>
+
 <h1>Projects</h1>
 <ul class="articles">
-        <li><a href="http://github.com/sl4mmy">My projects on GitHub</a></li>
+        <li><a href="http://github.com/sl4mmy/hippie">hippie</a>
+            - Monitors external service endpoints from integration tests by automatically sending Nagios passive service checks</li>
 </ul>
