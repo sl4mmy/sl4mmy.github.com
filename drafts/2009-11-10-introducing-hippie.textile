@@ -14,8 +14,10 @@ We write "JUnit":http://www.junit.org tests to verify each service is running co
 
 Enter "hippie":http://github.com/sl4mmy/hippie
 
-"Hippie":http://github.com/sl4mmy/hippie is an open source tool that automatically sends "Nagios":http://www.nagios.org "passive checks":http://http://nagios.sourceforge.net/docs/3_0/passivechecks.html based on the result of running "JUnit":http://www.junit.org tests.
+"Hippie":http://github.com/sl4mmy/hippie is an open source tool that automatically sends "Nagios":http://www.nagios.org "passive checks":http://nagios.sourceforge.net/docs/3_0/passivechecks.html based on the result of running "JUnit":http://www.junit.org tests.
 
-"hippie":http://github.com/sl4mmy/hippie is lightweight, flexible and simple.  It complements the "JUnit":http://www.junit.org tests developers write, it complements the "Nagios":http://www.nagios.org servers system administrators use to monitor networks, servers and services, and it ties the two together.  Every time the tests run - in an IDE, from the command line, on an automatic build server, etc. - "hippie":http://github.com/sl4mmy/hippie automatically notifies "Nagios":http://www.nagios.org of the status of each service so that "Nagios":http://www.nagios.org can automatically notify whoever is responsible for maintaining that service.
+"hippie":http://github.com/sl4mmy/hippie bridges the divide between developer tools and system administrator tools.  "JUnit":http://www.junit.org tests automatically notifies "Nagios":http://www.nagios.org which automatically notifies other teams that their services are broken.
+
+It is an extension of the automatic build notifications our continuous integration tools provide, only at much, much finer resolution.  "Hippie":http://github.com/sl4mmy/hippie makes it possible to notify Alice on "Team: Tiger" when TigerTests#shouldRespondWithOkStatus() fails, but notify Bob in production support when LegacyTests#shouldAlwaysBeUpAndRunning() fails.
 
 Those "JUnit":http://www.junit.org tests my team wrote no longer just prevent my team from wasting time debugging service problems, they now kick off a chain of events culminating (hopefully) with someone else fixing the problem: the ultimate goal of every programming endeavor.
