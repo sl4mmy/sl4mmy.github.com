@@ -16,7 +16,7 @@ Enter "hippie":http://github.com/sl4mmy/hippie
 
 "Hippie":http://github.com/sl4mmy/hippie is an open source tool that automatically sends "Nagios":http://www.nagios.org "passive checks":http://nagios.sourceforge.net/docs/3_0/passivechecks.html based on the result of running "JUnit":http://www.junit.org tests.
 
-"hippie":http://github.com/sl4mmy/hippie bridges the divide between developer tools and system administrator tools.  "JUnit":http://www.junit.org tests automatically notifies "Nagios":http://www.nagios.org which automatically notifies other teams that their services are broken.
+"hippie":http://github.com/sl4mmy/hippie bridges the divide between developer tools and system administrator tools.  "JUnit":http://www.junit.org tests automatically notify "Nagios":http://www.nagios.org which automatically notifies other teams that their services are broken.
 
 It is an extension of the automatic build notifications our continuous integration tools provide, only at much, much finer resolution.  "Hippie":http://github.com/sl4mmy/hippie makes it possible to notify Alice on "Team: Tiger" when TigerTests#shouldRespondWithOkStatus() fails, but notify Bob in production support when LegacyTests#shouldAlwaysBeUpAndRunning() fails.
 
