@@ -6,7 +6,7 @@ title: GitHub Pages
 
 h1. {{ page.title }}
 
-p(meta). November 9, 2009 - Chicago
+p(meta). November 9, 2009
 
 After several failed attempts, I've finally found a blogging platform to love: GitHub Pages:http://pages.github.com/.
 
