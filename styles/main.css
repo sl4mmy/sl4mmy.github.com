@@ -31,7 +31,7 @@ a {
 }
 
 a:hover {
-        color: #A00;
+        color: #00A;
         text-decoration: none;
 }
 
@@ -76,7 +76,7 @@ p {
 }
 
 #footer p a:hover {
-        color: #A00;
+        color: #00A;
 }
 
 #header {
@@ -86,7 +86,7 @@ p {
 }
 
 #header a {
-        color: #A00;
+        color: #00A;
 }
 
 #header a:hover {
@@ -99,7 +99,7 @@ p {
 }
 
 #header a.menu:hover {
-        color: #A00;
+        color: #00A;
 }
 
 .meta {
