@@ -8,4 +8,14 @@ h1. {{ page.title }}
 
 p(meta). November 10, 2009
 
-My current project integrates with several third-party services.  Some are developed, maintained and provided by other teams or groups at the client, and some come from external vendors.
+My current project integrates with a lot of external services.  Unfortunately, our service-level agreements do not extend to our development and testing environments, so our application breaks frequently because of service problems.  Services go down, services have bugs in the latest development versions deployed in our environments, our environments are upgraded to new versions of services that are not backwards compatible with the old versions, etc.
+
+We wrote "JUnit":http://www.junit.org tests verifying each service is running correctly in our environments, so we do not waste time debugging problems caused by service failures.  These tests make my team more productive, but unfortunately they do nothing to make the services more reliably.  At least, not by themselves...
+
+Enter "hippie":http://github.com/sl4mmy/hippie
+
+"Hippie":http://github.com/sl4mmy/hippie is an open source tool that automatically sends "Nagios":http://www.nagios.org "passive checks":http://http://nagios.sourceforge.net/docs/3_0/passivechecks.html based on the result of running "JUnit":http://www.junit.org tests.
+
+"hippie":http://github.com/sl4mmy/hippie is lightweight, flexible and simple.  It complements the "JUnit":http://www.junit.org tests developers write, it complements the "Nagios":http://www.nagios.org servers system administrators use to monitor networks, servers and services, and it ties the two together.  Every time the tests run - in an IDE, from the command line, on an automatic build server, etc. - "hippie":http://github.com/sl4mmy/hippie automatically notifies "Nagios":http://www.nagios.org of the status of each service so that "Nagios":http://www.nagios.org can automatically notify whoever is responsible for maintaining that service.
+
+Those "JUnit":http://www.junit.org tests my team wrote no longer just prevent my team from wasting time debugging service problems, they now kick off a chain of events culminating (hopefully) with someone else fixing the problem: the ultimate goal of every programming endeavor.
