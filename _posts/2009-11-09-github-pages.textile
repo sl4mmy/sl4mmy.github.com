@@ -1,5 +1,5 @@
 ---
-categories: life, politics, work
+categories: life politics work
 layout: article
 title: GitHub Pages
 ---
