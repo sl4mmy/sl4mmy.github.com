@@ -1,0 +1,11 @@
+---
+categories: work
+layout: article
+title: Private Methods are a Code Smell
+---
+
+h1. {{ page.title }}
+
+p(meta). November 12, 2009
+
+Private methods are a code smell.  They should be moved to a collaborating class and made public.
