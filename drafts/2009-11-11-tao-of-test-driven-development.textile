@@ -1,0 +1,17 @@
+---
+categories: work
+layout: article
+title: The Tao of Test-Driven Development
+---
+
+h1. {{ page.title }}
+
+p(meta). November 11, 2009
+
+I gave my _Tao of Test-Driven Development_ tutorial at OOPSLA 2009 in Orlando, FL.  The tutorial began with a quick lecture-style introduction to test-driven development, and concluded with a hands-on coding dojo for attendees to practice what they learned.
+
+The slides from my presentation are now "available online":http://github.com/sl4mmy/presentations/tree/master/tao-of-test-driven-development/ in Keynote, PowerPoint and PDF formats.
+
+I also uploaded starter code for parts 1 and 2 of the dojo.  Although the dojo was technology-agnostic and attendees free to use any language, my starter code used Java, JUnit and Ant.
+
+The starter code for part 2 includes my solution to part 1, but there are no right or wrong solutions.  My solution is illustrative of _my_ approach to solving part 1, but is by no means the only solution.  Indeed, I practiced part 1 three times in preparation for the tutorial and ended up with a different solution each time.
