@@ -1,0 +1,21 @@
+---
+categories: life work
+layout: article
+title: And Now for Something Completely Different
+---
+
+h1. {{ page.title }}
+
+p(meta). November 13, 2009
+
+Today is my last day working for "ThoughtWorks":http://www.thoughtworks.com.  After four and a half years, I decided to hang up my consultant's cape and try something new; I accepted an offer from "DRW Trading Group":http://www.drw.com starting next week.
+
+I am extremely excited about my new job at "DRW":http://www.drw.com, but the decision to leave "ThoughtWorks":http://www.thoughtworks.com was difficult and I am sad to say "goodbye!"  "ThoughtWorks":http://www.thoughtworks.com was an important part of my life these past several years, and I have a lot of great friends amongst the wonderful people I am leaving behind.  I will miss working with them every day, and I wish them all the very best.
+
+Ultimately, my decision to leave stems from my frustration with consulting.  Ostensibly, consultants are hired for their expertise in helping companies solve difficult problems.  Typically, consultants are specifically chosen for their past experience and expertise in successfully solving similar problems.  Usually, clients ignore or push back against counsel which runs counter to their current business practices.
+
+I accept that compromise, education and negotiation are important aspects of consulting, and I agree it is unreasonable - and would be unwise - to expect clients to do everything exactly as they are advised.  I also enjoy helping others solve problems.  But I am tired of arguing the same points with different clients again and again.  That I feel so cynical after such a brief career is strong indication that I am not "good consultant material" (something many of my colleagues probably figured out long ago).  And hence, the change.
+
+I will have much more to write about my new job in the future, but suffice it to say that "DRW":http://www.drw.com offers the best opportunity for me to be happy at work again.
+
+I am not bitter or jaded, I bear no grudge; it is just time for me to try something new away from client politics.  "ThoughtWorks":http://www.thoughtworks.com is still a great company, and I can't wait to see what things lie in store for them in the future!  But I will not miss my cape.
