@@ -8,4 +8,12 @@ h1. {{ page.title }}
 
 p(meta). November 12, 2009
 
-Private methods are a code smell.  They should be moved to a collaborating class and made public.
+Private methods are a code smell.  They should be moved to collaborating classes and made public.
+
+Private helper methods indicate classes are doing too many things.  Moving private helper methods to different classes, including creating new classes if necessary, splits the original responsibilities across multiple classes leading to simpler, better designs.
+
+Sometimes, private methods are created to split complex logic or processes into small, easily digested pieces.  Often, such private methods have gnarly dependencies because they directly access or modify internal state.  Moving these methods to appropriate collaborators (again, creating new classes if necessary) exposes such dependencies.  Eliminating these dependencies simplifies the new API, which improves readability and understanding.
+
+Sometimes, private methods are created just to give pieces of functionality more descriptive names.  Although descriptive names are desirable, creating private methods to provide descriptive names for things is still a smell.  Moving these methods to collaborators and making them public creates opportunities for future reuse without reducing the clarity of the original code.
+
+Taking small steps to improve design leads to flashes of brilliant design inspiration.  As code slowly evolves into better shape, bits and pieces fall into place until another, superior design becomes clear.  Making private methods public and moving them to (perhaps missing) collaborators is a simple and effective way to quickly improve design.  The resulting code is simpler, more testable, more reusable, more cohesive, and less coupled.  And when a superior design suddenly presents itself, a few public methods on lots of classes are easier to refactor than a few classes with lots of private methods.
