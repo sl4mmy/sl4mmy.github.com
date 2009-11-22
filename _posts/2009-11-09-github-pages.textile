@@ -1,13 +1,9 @@
 ---
 categories: life politics work
-date: {{ post.date }}
+date: November 9, 2009
 layout: article
 title: GitHub Pages
 ---
-
-h1. {{ page.title }}
-
-p(meta). November 9, 2009
 
 I finally found a blogging platform to love: "GitHub Pages":http://pages.github.com/.
 
