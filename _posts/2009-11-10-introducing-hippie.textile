@@ -1,12 +1,9 @@
 ---
 categories: work
+date: November 10, 2009
 layout: article
 title: Introducing Hippie
 ---
-
-h1. {{ page.title }}
-
-p(meta). November 10, 2009
 
 My current project integrates with a lot of external services.  Unfortunately, our service-level agreements do not extend to our development and testing environments, so our application breaks frequently because of service problems.  Services go down, services have bugs in the latest development versions deployed in our environments, our environments are upgraded to new versions of services that are not backwards compatible with the old versions, etc.
 

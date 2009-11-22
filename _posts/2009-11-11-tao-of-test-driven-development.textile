@@ -1,12 +1,9 @@
 ---
 categories: work
+date: November 11, 2009
 layout: article
 title: The Tao of Test-Driven Development
 ---
-
-h1. {{ page.title }}
-
-p(meta). November 11, 2009
 
 I gave my _Tao of Test-Driven Development_ tutorial at OOPSLA 2009 in Orlando, FL.  The tutorial began with a quick lecture-style introduction to test-driven development, and concluded with a hands-on coding dojo for attendees to practice what they learned.
 

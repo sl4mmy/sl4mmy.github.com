@@ -1,12 +1,9 @@
 ---
 categories: life work
+date: November 13, 2009
 layout: article
 title: And Now for Something Completely Different
 ---
-
-h1. {{ page.title }}
-
-p(meta). November 13, 2009
 
 Today is my last day working for "ThoughtWorks":http://www.thoughtworks.com.  After four and a half years, I decided to hang up my consultant's cape and try something new: I accepted an offer from "DRW Trading Group":http://www.drw.com starting next week.
 
