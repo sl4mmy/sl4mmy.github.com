@@ -73,7 +73,7 @@ p {
 
 #footer p a {
         color: #FFF;
-        text-decoration: none;
+        text-decoration: underline;
 }
 
 #footer p a:hover {
