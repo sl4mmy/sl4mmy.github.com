@@ -1,5 +1,6 @@
 ---
 categories: life politics work
+date: {{ post.date }}
 layout: article
 title: GitHub Pages
 ---
