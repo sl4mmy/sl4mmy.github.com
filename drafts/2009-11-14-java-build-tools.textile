@@ -39,7 +39,7 @@ But "Maven":maven is even worse than that: not only does "Maven":maven automatic
 
 These problems are not caused by careless developers, and are not solved by using "repository managers":http://maven.apache.org/repository-management.html to lock down every artifact "Maven":maven needs.  "Maven":maven is broken and wrong if it assumes humans never make mistakes.  "Maven":maven is broken and wrong if it requires users to explicitly specify every version of every dependency, and every dependency's dependencies, to reduce the likelihood of downloading incompatible artifacts.  "Maven":maven is broken and wrong if it requires a third-party tool to prevent it connecting to the big, bad internets and automatically downloading random crap.  "Maven":maven is broken and wrong if it thinks nothing of slowing down _every_ build by connecting to the network and checking _every_ dependency for _any_ updates, and automatically downloading them.  "Maven":maven is broken and wrong if it behaves differently on my laptop at the office and at home.  "Maven":maven is broken and wrong if it requires an internet connection to delete a directory.  "Maven":maven is broken and wrong.
 
-"Save yourself":rake.
+"Save":rake "yourself":ant.
 
 [ant]http://ant.apache.org
 [apache]http://jakarta.apache.org
