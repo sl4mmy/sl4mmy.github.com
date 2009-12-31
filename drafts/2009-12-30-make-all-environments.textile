@@ -9,9 +9,9 @@ Consistent environments are important on software projects.  They increase the t
 
 For lighter, simpler configuration needs I prefer "Makefiles":make.  "Makefiles":make are a great option because "Make":make is installed by default on modern UNIX platforms (except, perhaps, "Ubuntu":ubuntu), and can be installed without additional dependencies everywhere else.  "Makefile":make syntax is already familiar to most system administrators and easy to learn, and because "Makefiles":make are "shell scripts":sh with a few format constraints they map directly to the sequence of steps you would perform manually to setup your environments.  But arguably the biggest advantage of "Makefiles":make is that they won't do anything on machines where the file about to be installed or modified already exists.  This is critical in shared production environments where services might already be installed and configured for other applications, and you don't want to risk accidentally overwriting something important.
 
-Consider an application that requires "Java":java and "JRuby":jruby, and a convention that third-party applications like these should be installed under /opt/apps/&lt;name&gt;/&lt;name&gt;-&lt;version&gt;.  The following "Makefile":make installs and configures "Java":java and "JRuby":jruby according to these conventions:
+Consider an application that requires "Java":java and "JRuby":jruby, and a convention that third-party applications like these should be installed under @/opt/apps/&lt;name&gt;/&lt;name&gt;-&lt;version&gt;@.  The following "Makefile":make installs and configures "Java":java and "JRuby":jruby according to these conventions:
 
-<code><pre>
+<pre><code>
 # VARIABLES
 JAVA_VERSION=1.6.0_18
 JRUBY_VERSION=1.4.0
@@ -52,7 +52,7 @@ jruby: /opt/apps/jruby/jruby-${JRUBY_VERSION}
 # TARGET 9:
 /opt/apps/:
 	mkdir -p /opt/apps
-</pre></code>
+</code></pre>
 
 [chef]http://wiki.opscode.com/display/chef/Home
 [git]http://www.git-scm.com
