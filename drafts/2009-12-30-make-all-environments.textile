@@ -1,0 +1,7 @@
+---
+categories: work
+date: December 30, 2009
+layout: article
+title: "Make All Environments Consistent"
+---
+
