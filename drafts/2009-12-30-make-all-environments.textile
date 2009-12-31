@@ -5,3 +5,16 @@ layout: article
 title: "Make All Environments Consistent"
 ---
 
+Consistent environments are important on software projects.  They increase the team's productivity, make it easier to diagnose, replicate and resolve bugs, make it easier to tune performance and scale the application, and reduce the cost of administration and maintenance.  Building consistent environments is a great candidate for automation; in fact, tools like "Chef":chef and "Puppet":puppet were written for exactly this purpose.  But "Chef":chef and "Puppet":puppet are complicated, heavyweight solutions.  They also require a considerable amount of infrastructure themselves ("git":git, "Ruby":ruby, etc.)!
+
+For lighter, simpler configuration needs I prefer "Makefiles":make.  "Makefiles":make are a great option because "Make":make is installed by default on modern UNIX platforms (except, perhaps, "Ubuntu":ubuntu), and can be installed without additional dependencies everywhere else.  "Makefile":make syntax is already familiar to most system administrators and easy to learn, and because "Makefiles":make are "shell scripts":sh with a few format constraints they map directly to the sequence of steps you would perform manually to setup your environments.  But arguably the biggest advantage of "Makefiles":make is that they won't do anything on machines where the file about to be installed or modified already exists.  This is critical in shared production environments where services might already be installed and configured for other applications, and you don't want to risk accidentally overwriting something important.
+
+Consider an application that requires "Java":java and "JRuby":jruby, and a convention that third-party applications like these should be installed under /opt/<name>/<name>-<version>.  The following "Makefile":make 
+
+[chef]http://wiki.opscode.com/display/chef/Home
+[git]http://www.git-scm.com
+[make]http://www.opengroup.org/onlinepubs/009695399/utilities/make.html
+[puppet]http://reductivelabs.com/products/puppet/
+[ruby]http://www.ruby-lang.org
+[sh]http://www.opengroup.org/onlinepubs/009695399/utilities/sh.html
+[ubuntu]http://www.ubuntu.com
