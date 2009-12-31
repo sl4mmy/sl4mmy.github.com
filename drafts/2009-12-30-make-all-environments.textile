@@ -9,10 +9,55 @@ Consistent environments are important on software projects.  They increase the t
 
 For lighter, simpler configuration needs I prefer "Makefiles":make.  "Makefiles":make are a great option because "Make":make is installed by default on modern UNIX platforms (except, perhaps, "Ubuntu":ubuntu), and can be installed without additional dependencies everywhere else.  "Makefile":make syntax is already familiar to most system administrators and easy to learn, and because "Makefiles":make are "shell scripts":sh with a few format constraints they map directly to the sequence of steps you would perform manually to setup your environments.  But arguably the biggest advantage of "Makefiles":make is that they won't do anything on machines where the file about to be installed or modified already exists.  This is critical in shared production environments where services might already be installed and configured for other applications, and you don't want to risk accidentally overwriting something important.
 
-Consider an application that requires "Java":java and "JRuby":jruby, and a convention that third-party applications like these should be installed under /opt/<name>/<name>-<version>.  The following "Makefile":make 
+Consider an application that requires "Java":java and "JRuby":jruby, and a convention that third-party applications like these should be installed under /opt/apps/&lt;name&gt;/&lt;name&gt;-&lt;version&gt;.  The following "Makefile":make installs and configures "Java":java and "JRuby":jruby according to these conventions:
+
+<code><pre>
+# VARIABLES
+JAVA_VERSION=1.6.0_18
+JRUBY_VERSION=1.4.0
+
+# TARGET 0:
+all: java jruby
+
+# TARGET 1:
+java: /opt/apps/java/java-${JAVA_VERSION}
+
+# TARGET 2:
+jruby: /opt/apps/jruby/jruby-${JRUBY_VERSION}
+
+# TARGET 3:
+/opt/apps/java/java-${JAVA_VERSION}/: /opt/apps/java/ /tmp/java-${JAVA_VERSION}.tar.gz
+	(cd /opt/apps/java; tar czf /tmp/java-${JAVA_VERSION}.tar.gz)
+
+# TARGET 4:
+/opt/apps/jruby/jruby-${JRUBY_VERSION}/: /opt/apps/jruby/ /tmp/jruby-${JRUBY_VERSION}.tar.gz
+	(cd /opt/apps/jruby; tar czf /tmp/jruby-${JRUBY_VERSION}.tar.gz)
+
+# TARGET 5:
+/opt/apps/java/: /opt/apps/
+	mkdir /opt/apps/java
+
+# TARGET 6:
+/opt/apps/jruby/: /opt/apps/
+	mkdir /opt/apps/jruby
+
+# TARGET 7:
+/tmp/java-${JAVA_VERSION}.tar.gz:
+	# Shell commands to download Java
+
+# TARGET 8:
+/tmp/jruby-${JRUBY_VERSION}.tar.gz:
+	# Shell commands to download JRuby
+
+# TARGET 9:
+/opt/apps/:
+	mkdir -p /opt/apps
+</pre></code>
 
 [chef]http://wiki.opscode.com/display/chef/Home
 [git]http://www.git-scm.com
+[java]http://java.sun.com
+[jruby]http://jruby.org
 [make]http://www.opengroup.org/onlinepubs/009695399/utilities/make.html
 [puppet]http://reductivelabs.com/products/puppet/
 [ruby]http://www.ruby-lang.org
