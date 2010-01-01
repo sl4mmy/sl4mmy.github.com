@@ -87,7 +87,7 @@ Make is a file-centric build tool; it assumes the purpose of each target is to p
 
 Of course, targets are _not required_ to actually produce a file with the same name as the target, but if they don't Make will never think such targets are up-to-date and will execute them every time.  In this case, we want Make to do exactly that; our goal is not to produce a file named @all@ in the current directory, our goal is to set up a fully working environment on any machine by simply copying this Makefile and running @make@.  We are using @all@ as a convenience target so that we can make _both_ @java@ and @jruby@ by default.  If there were more dependencies, we could create separate targets for each of them and add them as additional prerequisites of @all@.
 
-Our @all@ target is declared with two prerequisites: @java@ and @jruby@.  Make will execute the @java@ and @jruby@ targets before executing @all@.
+Our @all@ target is declared with two prerequisites: @java@ and @jruby@.  Make executes all prerequisites before executing the target, so our @java@ and @jruby@ targets will execute before @all@.
 
 <pre><code>
 # TARGET 1:
@@ -111,11 +111,11 @@ The @java@ and @jruby@ targets are declared in Target 1 and Target 2, and each h
 
 </code></pre>
 
-The @/opt/apps/java/java-${JAVA_VERSION}/@ and @/opt/apps/jruby/jruby-${JRUBY_VERSION}/@ targets are declared in Target 3 and Target 4.  They both have two prerequisites, and one step.
+The @/opt/apps/java/java-${JAVA_VERSION}/@ and @/opt/apps/jruby/jruby-${JRUBY_VERSION}/@ targets are declared in Target 3 and Target 4.  They both have two prerequisites, and one step.  Notice that the trailing slash in each target's name makes it explicit to Make that these targets produce directories.
 
-Steps are shell commands Make runs when it executes a target, and virtually any valid shell scripts are also valid steps.  Steps are associated with the target immediately above them in the Makefile, and they _must_ begin with a @TAB@ (*no spaces!*).  Multiple steps can be associated with a target and will run in order, but each line _must_ begin with a @TAB@ (*no spaces!*).  Makefiles are very touchy about whitespace: every line beginning with a @TAB@ below a target definition is a step for that target, and the first line that does _not_ begin with a @TAB@ is the separator between targets.
+Steps are shell commands Make runs when it executes a target, and virtually any valid shell script is also a valid step.  Steps are associated with the target immediately above them in the Makefile, and they _must_ begin with a @TAB@ (*no spaces!*).  Multiple steps can be associated with a target and will run in order, but each line _must_ begin with a @TAB@ (*no spaces!*).  Makefiles are very touchy about whitespace: every line beginning with a @TAB@ below a target definition is a step for that target, and the first line that does _not_ begin with a @TAB@ is the separator between targets.
 
-When Target 3 is executed, Make will spawn a temporary subshell, change into the @/opt/apps/java@ directory and expand @/tmp/java-${JAVA_VERSION}.tar.gz@ there.  The parenthesis around the step definition are not required by Make, but are used here for the purpose of the shell scripting in the step definition: the parenthesis tell the shell to execute the enclosed commands in a subshell, returning to the original shell when the commands finish.  I did this so that changing directories as part of the step won't affect other steps that are executed afterwards.  Target 4 does the same for JRuby.
+When Target 3 is executed, Make will spawn a temporary subshell, change the current working directory to @/opt/apps/java@ and expand @/tmp/java-${JAVA_VERSION}.tar.gz@ there.  The parenthesis around the step definition are not required by Make, they are used here as in a regular shell script: the enclosed commands will run in a subshell, returning to the parent shell when finished.  I did this so that changing directories in this step won't affect the rest of the Makefile.  Target 4 does the same for JRuby.
 
 <pre><code>
 # TARGET 5:
@@ -126,6 +126,17 @@ When Target 3 is executed, Make will spawn a temporary subshell, change into the
 /opt/apps/jruby/: /opt/apps/
 	mkdir /opt/apps/jruby
 
+...
+
+# TARGET 9:
+/opt/apps/:
+	mkdir -p /opt/apps
+
+</code></pre>
+
+Target 3 (@/opt/apps/java/java-${JAVA_VERSION}/@) depends on @/opt/apps/java/@, declared as Target 5, and Target 4 (@/opt/apps/jruby/jruby-${JRUBY_VERSION}/@) depends on @/opt/apps/jruby/@, declared as Target 6.  Both targets depend on @/opt/apps/@, declared as Target 9.  These three targets ensure that the correct directory structure exists according to our convention, creating missing directories as necessary.
+
+<pre><code>
 # TARGET 7:
 /tmp/java-${JAVA_VERSION}.tar.gz:
 	# Shell commands to download Java
@@ -134,11 +145,18 @@ When Target 3 is executed, Make will spawn a temporary subshell, change into the
 /tmp/jruby-${JRUBY_VERSION}.tar.gz:
 	# Shell commands to download JRuby
 
-# TARGET 9:
-/opt/apps/:
-	mkdir -p /opt/apps
-
 </code></pre>
+
+Targets 7 and 8 are placeholders showing how to download the necessary files before building an environment.
+
+So, what happens when you run @make@ on a clean environment without any of the directory structure or tarballs necessary for this project?
+
+# Make looks for a file named @Makefile@ in the current directory, and loads it if it exists
+# Make parses our Makefile, setting the @JAVA_VERSION@ and @JRUBY_VARIABLES@ for use by the rest of the Makefile
+# Since no target was explicitly given on the command line, Make executes the first target declared in the Makefile by default; in this case, the default target is @all@
+# Make checks the current directory to see if a file named @all@ already exists
+# Since no file named @all@ exists in the current directory, Make checks for prerequisites of the @all@ target
+# Make tries
 
 [ant]http://ant.apache.org
 [chef]http://wiki.opscode.com/display/chef/Home
