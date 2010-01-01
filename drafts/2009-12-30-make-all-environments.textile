@@ -7,7 +7,7 @@ title: "Make All Environments Consistent"
 
 Consistent environments are important on software projects.  They increase the team's productivity, make it easier to diagnose, replicate and resolve bugs, make it easier to tune performance and scale the application, and reduce the cost of administration and maintenance.  Building consistent environments is a great candidate for automation; in fact, tools like "Chef":chef and "Puppet":puppet were written for exactly this purpose.  But Chef and Puppet are complicated, heavyweight solutions.  They also require a considerable amount of infrastructure themselves ("git":git, "Ruby":ruby, etc.)!
 
-For lighter, simpler configuration needs I prefer "Makefiles":make.  Makefiles are great for this sort of thing because versions of "Make":make exist for every operating system, and most UNIX systems come with a version already installed.
+For lighter, simpler configuration needs I prefer "Makefiles":make.  Makefiles are great for this sort of thing because versions of "Make":make exist for every operating system, and most UNIX systems come with some version already installed.
 
 Makefile syntax is familiar to system administrators and easy to learn, and because Makefiles are "shell scripts":sh (with a few format constraints) they map directly to the sequence of steps you would perform manually to setup your environments.  But arguably the biggest advantage of Makefiles is they won't do anything when the file about to be installed or modified exists.  This is critical in shared production environments where services might already be installed and configured for other applications, and you don't want to risk accidentally overwriting something important.
 
@@ -58,7 +58,22 @@ jruby: /opt/apps/jruby/jruby-${JRUBY_VERSION}
 
 </code></pre>
 
-The first two lines of this Makefile define variables that can be referenced later.  You may safely assume the syntax for defining and referencing variables in Makefiles is identical to shell scripting.
+Starting from the top:
+
+<pre><code>
+# Makefile
+
+JAVA_VERSION=1.6.0_18
+JRUBY_VERSION=1.4.0
+
+</code></pre>
+
+Makefile comments start with #, just like shell scripts.  The first two lines of this Makefile define variables that can be referenced later.  You may safely assume the syntax for defining and referencing variables in Makefiles is also identical to shell scripting.
+
+<pre><code>
+	# TARGET 0:
+	all: java jruby
+</code></pre>
 
 Target 0, named @all@ here but could be named anything, is the default target because it is the first target in the Makefile. Running @make@ in the directory containing this Makefile is equivalent to running @make all@.
 
@@ -66,13 +81,56 @@ Make is a file-centric build tool; it assumes the purpose of each target is to p
 
 Our @all@ target is declared with two prerequisites: @java@ and @jruby@.  Make will execute the @java@ and @jruby@ targets before executing @all@.
 
-The @java@ and @jruby@ targets are declared in Target 1 and Target 2 above, and each have a single dependency on the Java and JRuby installation directories defined in our convention.  Absolute paths are valid target names in Makefile, and since they are used as prerequisites here, Make will search for targets with those names before it executes the @java@ or @jruby@ targets.
+<pre><code>
+# TARGET 1:
+java: /opt/apps/java/java-${JAVA_VERSION}
 
-The @/opt/apps/java/java-${JAVA_VERSION}/@ and @/opt/apps/jruby/jruby-${JRUBY_VERSION}/@ targets are declared in Target 3 and Target 4 above.  They both have two prerequisites, and one step.
+# TARGET 2:
+jruby: /opt/apps/jruby/jruby-${JRUBY_VERSION}
+
+</code></pre>
+
+The @java@ and @jruby@ targets are declared in Target 1 and Target 2, and each have a single dependency on the Java and JRuby installation directories defined in our convention.  Absolute paths are valid target names in Makefiles, and since they are used as prerequisites here, Make will search for targets with those names before it executes the @java@ or @jruby@ targets.
+
+<pre><code>
+# TARGET 3:
+/opt/apps/java/java-${JAVA_VERSION}/: /opt/apps/java/ /tmp/java-${JAVA_VERSION}.tar.gz
+	(cd /opt/apps/java; tar czf /tmp/java-${JAVA_VERSION}.tar.gz)
+
+# TARGET 4:
+/opt/apps/jruby/jruby-${JRUBY_VERSION}/: /opt/apps/jruby/ /tmp/jruby-${JRUBY_VERSION}.tar.gz
+	(cd /opt/apps/jruby; tar czf /tmp/jruby-${JRUBY_VERSION}.tar.gz)
+
+</code></pre>
+
+The @/opt/apps/java/java-${JAVA_VERSION}/@ and @/opt/apps/jruby/jruby-${JRUBY_VERSION}/@ targets are declared in Target 3 and Target 4.  They both have two prerequisites, and one step.
 
 Steps are shell commands Make runs when it executes a target, and virtually any valid shell scripts are also valid steps.  Steps are associated with the target immediately above them in the Makefile, and they _must_ begin with a @TAB@ (*no spaces!*).  Multiple steps can be associated with a target and will run in order, but each line _must_ begin with a @TAB@ (*no spaces!*).  Makefiles are very touchy about whitespace: every line beginning with a @TAB@ below a target definition is a step for that target, and the first line that does _not_ begin with a @TAB@ is the separator between targets.
 
 When Target 3 is executed, Make will spawn a temporary subshell, change into the @/opt/apps/java@ directory and expand @/tmp/java-${JAVA_VERSION}.tar.gz@ there.  The parenthesis around the step definition are not required by Make, but are used here for the purpose of the shell scripting in the step definition: the parenthesis tell the shell to execute the enclosed commands in a subshell, returning to the original shell when the commands finish.  I did this so that changing directories as part of the step won't affect other steps that are executed afterwards.  Target 4 does the same for JRuby.
+
+<pre><code>
+# TARGET 5:
+/opt/apps/java/: /opt/apps/
+	mkdir /opt/apps/java
+
+# TARGET 6:
+/opt/apps/jruby/: /opt/apps/
+	mkdir /opt/apps/jruby
+
+# TARGET 7:
+/tmp/java-${JAVA_VERSION}.tar.gz:
+	# Shell commands to download Java
+
+# TARGET 8:
+/tmp/jruby-${JRUBY_VERSION}.tar.gz:
+	# Shell commands to download JRuby
+
+# TARGET 9:
+/opt/apps/:
+	mkdir -p /opt/apps
+
+</code></pre>
 
 [ant]http://ant.apache.org
 [chef]http://wiki.opscode.com/display/chef/Home
