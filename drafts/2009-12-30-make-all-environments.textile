@@ -12,6 +12,7 @@ For lighter, simpler configuration needs I prefer "Makefiles":make.  Makefiles a
 Makefile syntax is familiar to system administrators and easy to learn, and because Makefiles are "shell scripts":sh (with a few format constraints) they map directly to the sequence of steps you would perform manually to setup your environments.  But arguably the biggest advantage of Makefiles is they won't do anything when the file about to be installed or modified exists.  This is critical in shared production environments where services might already be installed and configured for other applications, and you don't want to risk accidentally overwriting something important.
 
 Consider a project dependent on "Java":java and "JRuby":jruby, and a convention that third-party applications should be installed under @/opt/apps/<name>/<name>-<version>@.  The following Makefile installs and configures this project's environment accordingly:
+
 <pre><code>
 # Makefile
 
@@ -58,6 +59,7 @@ jruby: /opt/apps/jruby/jruby-${JRUBY_VERSION}
 </code></pre>
 
 Starting from the top:
+
 <pre><code>
 # Makefile
 
