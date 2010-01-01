@@ -69,9 +69,9 @@ JRUBY_VERSION=1.4.0
 
 </code></pre>
 
-You should always name your Makefiles as @Makefile@ because Make will look for that file in the current directory by default when it runs.  You _are_ free to name your Makefiles anything you wish, but if they are _not_ named @Makefile@ then Make will require additional configuration telling it which Makefile to load.
+You should always name your Makefiles as @Makefile@ because Make will look for that file in the current directory by default when it runs.  You _are_ free to name your Makefiles anything you wish, but if they are _not_ named @Makefile@ then Make will require additional configuration telling it which file to load.
 
-Makefile comments start with #, just like shell scripts.  The @# Makefile@ comment in this example is not necessary, it is for illustrative purposes.
+Makefile comments start with #, just like shell scripts.  The @# Makefile@ comment in this example is not necessary, it is only for illustrative purposes.
 
 The first two non-comment lines define variables that will be used throughout this Makefile.  You may safely assume the syntax for defining and referencing variables in Makefiles is identical to shell scripting.
 
@@ -83,7 +83,9 @@ all: java jruby
 
 Target 0, named @all@ here but could be named anything, is the default target because it is the first target declared in this Makefile. Running @make@ in the directory containing this Makefile is equivalent to running @make all@.
 
-Make is a file-centric build tool; it assumes the purpose of each target is to produce (or "make," natch) a single file.  By convention, the name of a target is the name of the output file produced by invoking that target.  In our example, Make assumes that the @all@ target will produce a file in the current directory named @all@.  Make uses this convention to determine whether or not it actually needs to execute that target: if a file named @all@ already exists in the current directory, Make won't execute the @all@ target.  Of course, targets are _not required_ to actually produce a file with the same name as the target, but if they don't Make will never think such targets are up-to-date and will execute them every time.  In this case, we are using @all@ as a convenience target so that we can make both @java@ and @jruby@ by default.  If there were more dependencies, we could create separate targets for each of them and add them as prerequisites of @all@, so that copying the Makefile and running @make@ automatically sets up a fully working environment on any machine.
+Make is a file-centric build tool; it assumes the purpose of each target is to produce (or "make," natch) a single file.  By convention, the name of a target is the name of the output file produced by invoking that target.  In our example, Make assumes that the @all@ target will produce a file in the current directory named @all@.  Make uses this convention to determine whether or not it actually needs to execute that target: if a file named @all@ already exists in the current directory, Make won't execute the @all@ target.
+
+Of course, targets are _not required_ to actually produce a file with the same name as the target, but if they don't Make will never think such targets are up-to-date and will execute them every time.  In this case, we want Make to do exactly that; our goal is not to produce a file named @all@ in the current directory, our goal is to set up a fully working environment on any machine by simply copying this Makefile and running @make@.  We are using @all@ as a convenience target so that we can make _both_ @java@ and @jruby@ by default.  If there were more dependencies, we could create separate targets for each of them and add them as additional prerequisites of @all@.
 
 Our @all@ target is declared with two prerequisites: @java@ and @jruby@.  Make will execute the @java@ and @jruby@ targets before executing @all@.
 
