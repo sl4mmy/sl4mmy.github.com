@@ -12,7 +12,6 @@ For lighter, simpler configuration needs I prefer "Makefiles":make.  Makefiles a
 Makefile syntax is familiar to system administrators and easy to learn, and because Makefiles are "shell scripts":sh (with a few format constraints) they map directly to the sequence of steps you would perform manually to setup your environments.  But arguably the biggest advantage of Makefiles is they won't do anything when the file about to be installed or modified exists.  This is critical in shared production environments where services might already be installed and configured for other applications, and you don't want to risk accidentally overwriting something important.
 
 Consider a project dependent on "Java":java and "JRuby":jruby, and a convention that third-party applications should be installed under @/opt/apps/<name>/<name>-<version>@.  The following Makefile installs and configures this project's environment accordingly:
-
 <pre><code>
 # Makefile
 
@@ -59,7 +58,6 @@ jruby: /opt/apps/jruby/jruby-${JRUBY_VERSION}
 </code></pre>
 
 Starting from the top:
-
 <pre><code>
 # Makefile
 
@@ -68,11 +66,16 @@ JRUBY_VERSION=1.4.0
 
 </code></pre>
 
-Makefile comments start with #, just like shell scripts.  The first two lines of this Makefile define variables that can be referenced later.  You may safely assume the syntax for defining and referencing variables in Makefiles is also identical to shell scripting.
+You should always name your Makefiles as @Makefile@ because Make will look for that file in the current directory by default when it runs.  You _are_ free to name your Makefiles anything you wish, but if they are _not_ named @Makefile@ then you have to pass additional command line options to Make to tell it where to look.
+
+Makefile comments start with #, just like shell scripts.  The @# Makefile@ comment is not necessary, it is just being used here for illustrative purposes.
+
+The first two non-comment lines of this Makefile define variables that can be referenced later.  You may safely assume the syntax for defining and referencing variables in Makefiles is also identical to shell scripting.
 
 <pre><code>
-	# TARGET 0:
-	all: java jruby
+# TARGET 0:
+all: java jruby
+
 </code></pre>
 
 Target 0, named @all@ here but could be named anything, is the default target because it is the first target in the Makefile. Running @make@ in the directory containing this Makefile is equivalent to running @make all@.
