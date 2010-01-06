@@ -1,6 +1,6 @@
 h2. License
 
-Copyright (c) 2009, Kent R. Spillner <kspillner@acm.org>
+Copyright (c) 2009, 2010, Kent R. Spillner <kspillner@acm.org>
 
 Permission to use, copy, modify, and/or distribute this software for any
 purpose with or without fee is hereby granted, provided that the above
