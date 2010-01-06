@@ -23,10 +23,10 @@ JRUBY_VERSION=1.4.0
 all: java jruby
 
 # TARGET 1:
-java: /opt/apps/java/java-${JAVA_VERSION}
+java: /opt/apps/java/java-${JAVA_VERSION}/
 
 # TARGET 2:
-jruby: /opt/apps/jruby/jruby-${JRUBY_VERSION}
+jruby: /opt/apps/jruby/jruby-${JRUBY_VERSION}/
 
 # TARGET 3:
 /opt/apps/java/java-${JAVA_VERSION}/: /opt/apps/java/ /tmp/java-${JAVA_VERSION}.tar.gz
@@ -46,11 +46,11 @@ jruby: /opt/apps/jruby/jruby-${JRUBY_VERSION}
 
 # TARGET 7:
 /tmp/java-${JAVA_VERSION}.tar.gz:
-	# Shell commands to download Java
+	# Shell commands to download an archive of Java and save it as /tmp/java-${JAVA_VERSION}.tar.gz
 
 # TARGET 8:
 /tmp/jruby-${JRUBY_VERSION}.tar.gz:
-	# Shell commands to download JRuby
+	# Shell commands to download an archive of JRuby and save it as /tmp/jruby-${JRUBY_VERSION}.tar.gz
 
 # TARGET 9:
 /opt/apps/:
@@ -91,14 +91,14 @@ Our @all@ target is declared with two prerequisites: @java@ and @jruby@.  Make e
 
 <pre><code>
 # TARGET 1:
-java: /opt/apps/java/java-${JAVA_VERSION}
+java: /opt/apps/java/java-${JAVA_VERSION}/
 
 # TARGET 2:
-jruby: /opt/apps/jruby/jruby-${JRUBY_VERSION}
+jruby: /opt/apps/jruby/jruby-${JRUBY_VERSION}/
 
 </code></pre>
 
-The @java@ and @jruby@ targets are declared in Target 1 and Target 2, and each have a single dependency on the Java and JRuby installation directories defined in our convention.  Absolute paths are valid target names in Makefiles, and since they are used as prerequisites here, Make will search for targets with those names before it executes the @java@ or @jruby@ targets.
+The @java@ and @jruby@ targets are declared in Target 1 and Target 2, and each have a single prerequisite of the Java and JRuby installation directories defined in our convention.  Absolute paths are valid target names in Makefiles, and since they are used as prerequisites here, Make will search for targets with those names before it executes the @java@ or @jruby@ targets.
 
 <pre><code>
 # TARGET 3:
@@ -139,24 +139,29 @@ Target 3 (@/opt/apps/java/java-${JAVA_VERSION}/@) depends on @/opt/apps/java/@, 
 <pre><code>
 # TARGET 7:
 /tmp/java-${JAVA_VERSION}.tar.gz:
-	# Shell commands to download Java
+	# Shell commands to download an archive of Java and save it as /tmp/java-${JAVA_VERSION}.tar.gz
 
 # TARGET 8:
 /tmp/jruby-${JRUBY_VERSION}.tar.gz:
-	# Shell commands to download JRuby
+	# Shell commands to download an archive of JRuby and save it as /tmp/jruby-${JRUBY_VERSION}.tar.gz
 
 </code></pre>
 
 Targets 7 and 8 are placeholders showing how to download the necessary files before building an environment.
 
-So, what happens when you run @make@ on a clean environment without any of the directory structure or tarballs necessary for this project?
+So, what happens when you run @make@ on a clean environment without any of the directory structure or tarballs necessary for this project?  Follow along by tracing the prerequisites in the Makefile.
 
-# Make looks for a file named @Makefile@ in the current directory, and loads it if it exists
-# Make parses our Makefile, setting the @JAVA_VERSION@ and @JRUBY_VARIABLES@ for use by the rest of the Makefile
-# Since no target was explicitly given on the command line, Make executes the first target declared in the Makefile by default; in this case, the default target is @all@
-# Make checks the current directory to see if a file named @all@ already exists
-# Since no file named @all@ exists in the current directory, Make checks for prerequisites of the @all@ target
-# Make tries
+Since @all@ is the default target, Make starts by looking for a file named @all@ in the current directory; unable to find that file, Make tries to execute @all@'s prerequisites, @java@ and @jruby@.  Since no file named @java@ exists in the current directory either, Make looks up the target named @java@ and then tries to execute its prerequisite, @/opt/apps/java/java-${JAVA_VERSION}/@.  Since that directory does not exist, Make looks up the target named @/opt/apps/java/java-${JAVA_VERSION}/@ and tries to execute its prerequisites, @/opt/apps/java/@ and @/tmp/java-${JAVA_VERSION}.tar.gz@.  Since the directory @/opt/apps/java/@ does not exist, Make looks up the target named @/opt/apps/java/@ and tries to execute its prerequisite, @/opt/apps/@.  Since that directory does not exist, Make looks up the target named @/opt/apps/@, sees that it has no prerequisites, and executes the steps associated with that target (@mkdir -p /opt/apps@) which produces the directory @/opt/apps/@.
+
+Make then backtracks to the @/opt/apps/java/@ target, determines that its prerequisites were previously executed, and executes its steps (@mkdir /opt/apps/java@) which produces the directory @/opt/apps/java/@.  Make backtracks again to the @/opt/apps/java/java-${JAVA_VERSION}/@ target, sees that it still has one unsatisfied prerequisite, and looks up the target named @/tmp/java-${JAVA_VERSION}.tar.gz@.  Make sees that @/tmp/java-${JAVA_VERSION}.tar.gz@ has no prerequisites, and executes its steps to download an archive of Java and save it as @/tmp/java-${JAVA_VERSION}.tar.gz@.  Mack backtracks to the @/opt/apps/java/java-${JAVA_VERSION}/@ target again, sees that all of its prerequisites are now satisfied, and executes its steps which produce the directory @/opt/apps/java/java-${JAVA_VERSION}/@.
+
+Make then backtracks all the way back to the @all@ target, and does the same for its other prerequisite, @jruby@.
+
+Now, consider what happens when you re-run @make@ in the directory containing this Makefile (or run it for the first time in an environment which was previously setup manually).  Make sees that @all@ is the default target, but cannot find a file named @all@ in the current directory, so it tries to execute its prerequisites, @java@ and @jruby@.  There is no file named @java@ in the current directory, either, but the @java@ target's only prerequisite is @/opt/apps/java/java-${JAVA_VERSION}/@, and that directory _does_ exist_, so Make skips the prerequisite's steps and goes straight to executing the steps associated with the @java@ target.  Since there are none, nothing happens, and Make backtracks to the @all@ target and tries to execute its other prerequisite, @jruby@.  Similarly, there is no file named @jruby@, but the directory corresponding to the @jruby@ target's only prerequisite _does_ exist, so Make skips executing the prerequisite target, going straight to the steps associated with @jruby@.  Again, there are none so nothing happens, Make backtracks back to the @all@ target, determines its prerequisites were previously executed and so tries to execute the steps associated with @all@.  Since there are no steps associated with @all@, nothing happens, and Make finishes successfully without having done anything.  Perfect for production environments!
+
+What happens if you delete @/tmp/java-${JAVA_VERSION}.tar.gz@ and re-run @make@ in the directory containing the Makefile?  Well, nothing.  Make never sees that file is missing since the directory @/opt/apps/java-${JAVA_VERSION}@ exists.  But if you delete the directory @/opt/apps/java-${JAVA_VERSION}/@ and re-run @make@, then @/tmp/java-${JAVA_VERSION}.tar.gz@ will be downloaded again and @/opt/apps/java-${JAVA_VERSION}/@ will be re-created.  You must carefully ensure all of your application's dependencies are properly exposed as prerequisites in your Makefile, not hidden as nested prerequisites of prerequisites.
+
+I love "Make":make as a low-touch solution for setting up consistent environments!  It's simple to learn and easy to use, and it is low-risk for shared production environments because it reduces the likelihood of modifying or deleting files used by other applications.  And when you outgrow Make's capabilities and need a more powerful tool, "Makefiles":make are the perfect way to consistently install and configure "Chef":chef or "Puppet":puppet across multiple machines.
 
 [ant]http://ant.apache.org
 [chef]http://wiki.opscode.com/display/chef/Home
