@@ -9,7 +9,7 @@ _*TRANSLATIONS:* "Spanish":spanish (gracias, Jos&eacute;!)_
 
 _*UPDATED 2010-01-06:* linked to demonstration of the "10 minute mvn clean build" problem, and added notes about: slow build times, excessive memory use, bad test result output, untrusted repository artifacts, and external configuration files._
 
-_*UPDATED 2010-02-21:* linked to Spanish translation provided by Jos&eacute; Manuel Prieto_
+_*UPDATED 2010-02-21:* linked to Spanish translation (courtesy of Jos&eacute; Manuel Prieto)_
 
 The best build tool is the one you write yourself.  Every project's build process is unique, and often individual projects need to be built multiple different ways.  It is impossible for tool authors to anticipate every build's requirements, and foolhardy to try ("Apache":apache developers: take note).  The best any tool can do is provide a flexible library of reusable tasks that can easily be adapted to your needs, but even that is insufficient.  Off-the-shelf tasks never suit your project perfectly.  You will waste countless hours struggling to make those tasks do _exactly_ what you need, only to give up and write a plugin instead.  Writing your own custom build tool is quick and easy, and requires less maintenance than you fear.  Don't be afraid: builds should fit your project, not the other way around.
 
