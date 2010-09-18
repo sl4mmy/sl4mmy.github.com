@@ -1,0 +1,10 @@
+---
+categories: books life
+date: September 18, 2010
+layout: article
+title: Book Reviews
+---
+
+I've added a new category to my site, "Books":http://kent.spillner.org/blog/books/, where I intend to post book reviews.  This new category comes complete with "its very own feed":http://feeds.feedburner.com/kent-spillner-books.
+
+Once again, you're welcome!

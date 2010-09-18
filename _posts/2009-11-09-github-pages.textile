@@ -5,6 +5,8 @@ layout: article
 title: GitHub Pages
 ---
 
+_*UPDATED 2010-09-18:* Added a new category to my site, "Books":http://kent.spillner.org/blog/books/, with "its own separate feed.":http://feeds.feedburner.com/kent-spillner-books_
+
 I finally found a blogging platform to love: "GitHub Pages":http://pages.github.com/.
 
 "GitHub Pages":http://pages.github.com/ rocks!  It gives me control over every aspect of my site: directory structure, page layout, permalink format.  Everything is stored in plain text, versioned (courtesy of Git, natch), and cloudified.  There is no dumb blog name or stupid subtitle, no biography or mugshot, no comments or tag clouds.  I especially like the lack of comments because the best conversations happen when everyone just listens to me.
