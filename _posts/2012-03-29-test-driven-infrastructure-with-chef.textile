@@ -1,0 +1,23 @@
+---
+categories: books
+date: March 28, 2012
+layout: article
+title: Test-Driven Infrastructure with Chef
+---
+
+I thought "Test-Driven Infrastructure with Chef":book was fantastic! It offers a great, no-nonsense introduction to "Chef":chef and the concept "Infrastructure as Code."
+
+I poked around the "Chef wiki":wiki before reading this book, but I couldn't find a good, concise introduction to the framework. I understand the concepts of "nodes, roles, resources, recipes, cookbooks, etc.":components but I was missing a guide that would tie it all together for me. Turns out, this book is that guide! And it also introduces the "cucumber-chef tool":tool and shows how to build recipes and cookbooks test-first.
+
+The book introduces "Infrastructure as Code," test-driven development, Chef, and cucumber-chef, and then proceeds to a simple example using Chef to provision a shared Linux server. The recipes for the server are developed test-first, demonstrating both the technique and the workflow.
+
+Overall, this book is the best introduction to Chef I've come across, and after reading it I feel confident in my ability to start writing my own recipes test first.
+
+The biggest drawback of the book is that is short. Although it covers a great deal of material in so few pages, I would have liked a few more chapters at the end that explored more advanced topics, or dug into some of the other topics in more detail. As it is, I can't wait to get my hands on a copy of the author's next book, "Chef: The Definitive Guide":defguide (perhaps that was his intent all along! ;P).
+
+[book]http://shop.oreilly.com/product/0636920020042.do
+[chef]http://www.opscode.com/chef
+[components]http://wiki.opscode.com/display/chef/Core+Components
+[defguide]http://shop.oreilly.com/product/0636920025146.do
+[tool]http://wiki.opscode.com/display/chef/Core+Components
+[wiki]http://wiki.opscode.com/
