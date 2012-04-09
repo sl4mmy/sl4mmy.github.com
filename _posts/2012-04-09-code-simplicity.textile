@@ -1,0 +1,20 @@
+---
+categories: books
+date: April 9, 2012
+layout: article
+title: Code Simplicity
+---
+
+"Code Simplicity":book was a terrible disappointment. I was excited by the novel prospect that the author managed to create an original science of software design, but in reality this book is just a vague, rambling argument in favor of "Agile software development":agile. In fact, every idea in this book has already been presented in far better books by "Kent Beck":beck, "Martin Fowler":fowler, "Robert C. Martin":unclebob, etc.
+
+I applaud the author's ambition in wanting to create a science of software design, but I think he was incredibly naive to think he could do so without more data, evidence, and rigor. The most confusing aspect of the whole book is that he spends several pages in chapter 2 talking about what a science is, and what the necessary characteristics of a science of software design must look like, but then throughout the rest of the book he doesn't make any attempt to adhere to this model. Instead, he always proceeds directly from vague generalizations and observations, or "data" from contrived examples, to his "laws" and "facts" about software design. For example, in chapter 4 he argues about optimizing design decisions to reduce the future cost of maintenance at the expense of greater initial implementation cost, and the only evidence he offers in support of this position is a series of tables showing different hypothetical situations with different costs of effort and value. It's not that his conclusion is necessarily flawed or invalid -- indeed, making decisions to reduce the future cost of maintenance is a very reasonable and pragmatic approach -- but that his argument suffers from lack of evidence, and specificity, and rigorous application of the scientific method.
+
+In the whole book the only external evidence offered in support of one of his conclusions is a table in chapter 5 that shows some statistics about how five different files changed over time (in terms of line count, change count, number of lines added and deleted, etc.). But he doesn't identify any of the files, or the project(s) from which they came, or the time period in which he analyzed when creating that table. He uses this arbitrary collection of information about five random files to build and support his entire case that developers should write code that is easy to change in the future, should not write code that they don't need right now, should not write code that is too abstract, etc. Again, these are all good rules of thumb and useful lessons for every software developer to learn, but it is incredibly naive of him to label this as science given the flimsy evidence used as a basis to support his claims. Laughably, he closes this section by writing "there is a lot more interesting analysis the could be done on these numbers. You're encouraged to dig into this data and see what else you can learn." Yes, there is a lot more interesting analysis that could be done, but until you're more forthcoming with details about where your data and evidence comes from we can't verify or refute any of your claims!
+
+I think this book was published too early in its development, and would be well served by a major rewrite (or three). The author needs to spend a lot more time and effort building a solid foundation for his "science," and should spend less time with the hand-wavy, anecdotal summaries from his own personal experience.
+
+[agile]http://agilemanifesto.org/
+[beck]http://www.amazon.com/Extreme-Programming-Explained-Embrace-Edition/dp/0321278658
+[book]http://shop.oreilly.com/product/0636920022251.do
+[fowler]http://www.amazon.com/Refactoring-Improving-Design-Existing-Code/dp/0201485672
+[unclebob]http://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882
