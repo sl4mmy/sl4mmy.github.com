@@ -5,7 +5,7 @@ layout: article
 title: watch -g
 ---
 
-@watch@, part of "procps":procps, is one of my favorite command line utilities.  It repeatedly executes a command so you can watch the output change, and if you pass the optional @--diff/-d@ command line argument it highlights the changes between executions (or across every execution with @--difference=cumulative@).  It's great for one-off monitoring uses, like running @/sbin/ifconfig@ to see how frequently your network interfaces are experiencing errors or dropping packets, or running @/bin/ls -l@ to see how quickly some log files are growing, etc.
+@watch(1)@, part of "procps":procps, is one of my favorite command line utilities.  It repeatedly executes a command so you can watch the output change, and if you pass the optional @--diff/-d@ command line argument it highlights the changes between executions (or across every execution with @--difference=cumulative@).  It's great for one-off monitoring uses, like running @/sbin/ifconfig@ to see how frequently your network interfaces are experiencing errors or dropping packets, or running @/bin/ls -l@ to see how quickly some log files are growing, etc.
 
 By default, @watch@ runs until either the command you are watching errors out or you interrupt it, but a colleague suggested an option to exit when the output changes.  This is useful for things like "Makefiles":make and shell scripts where you want to gate an automated process on an external event or resource.  For example, when integration testing a web application you want to wait for the app to fully start before running any tests, or when upgrading network card drivers you want to wait for the kernel to reinitialize interfaces before restarting your applications.
 
