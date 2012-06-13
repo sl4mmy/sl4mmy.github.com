@@ -5,13 +5,20 @@ layout: article
 title: watch -g
 ---
 
-@watch@ (part of "procps":procps) is one of my favorite Unix command line utilities.  It repeatedly executes a command so you can watch the output change, and if you pass the optional @--diff/-d@ command line argument it highlights the changes between executions (or across every execution with @--difference=cumulative@).  It's great for one-off monitoring uses, like running @/sbin/ifconfig@ to see how frequently your network interfaces are experiencing errors or dropping packets, or running @/bin/ls -l@ to see how quickly some log files are growing, etc.
+@watch@ (part of "procps":procps) is one of my favorite command line utilities.  It repeatedly executes a command so you can watch the output change, and if you pass the optional @--diff/-d@ command line argument it highlights the changes between executions (or across every execution with @--difference=cumulative@).  It's great for one-off monitoring uses, like running @/sbin/ifconfig@ to see how frequently your network interfaces are experiencing errors or dropping packets, or running @/bin/ls -l@ to see how quickly some log files are growing, etc.
 
-By default, @watch@ runs until either the command you are watching errors out or you interrupt it, but a colleague suggested an option to exit when the output changes.  This is useful for things like "Makefiles":make and shell scripts where you want to gate an automated process on an external resource.  For example, when integration testing a web application you want to wait for the app to fully start before running any tests, or when upgrading network card drivers you want to wait for the kernel to reinitialize the interface before re-starting any network applications.
+By default, @watch@ runs until either the command you are watching errors out or you interrupt it, but a colleague suggested an option to exit when the output changes.  This is useful for things like "Makefiles":make and shell scripts where you want to gate an automated process on an external event or resource.  For example, when integration testing a web application you want to wait for the app to fully start before running any tests, or when upgrading network card drivers you want to wait for the kernel to reinitialize interfaces before re-starting your applications.
 
-I wrote a patch for @watch@ that adds an optional @--chg-exit/-g@ command line argument for this behavior, and I'm happy to say it was "merged upstream":merge and "is available as of procps v3.3.3":announcement.  As soon as your favorite distro upgrades to that version of "procps":procps (or you build it from source) you will be able to do things like @watch -g "curl http://localhost:3000/" && ./run_integration_tests.sh@ to wait for a webapp to start before testing it, or @watch -g "nc -w 1 <ip address> 22" && ssh <ip address> "restart_apps.sh"@ to wait until after @sshd@ starts on a remote server before attempting to connect.
+I wrote a patch for @watch@ that adds an optional @--chg-exit/-g@ command line argument for this behavior, and I'm happy to say it was "merged upstream":merge and "is available as of procps v3.3.3":announcement.  As soon as your favorite operating system upgrades to that version of "procps":procps (or you build it from source) you will be able to do things like @watch -g "curl http://localhost:3000/" && ./run_integration_tests.sh@ to wait for your webapp to start before running any tests, or @watch -g "nc -w 1 <ip address> 22" && ssh <ip address> restart_apps.sh@ to wait until the "OpenSSH daemon":openssh starts before restarting your applications on a remote server.
+
+There are other tools that provide the same functionality, but the advantage of using @watch -g@ is being able to watch what's going on when running in a terminal.  I don't use @watch -g@ in automated processes that run headless on remote machines such as build servers or cronjobs, but it's my preferred tool for interactive use.  Fortunately, it's easy to tell when a process is running interactively ("Perl's -t file test operator":ttyperl, "Python's file#isatty()":ttypython, "Ruby's IO#tty?":ttyruby, "/usr/bin/tty in shell scripts":ttyshell, etc.), so your tools can automatically decide whether or not to wait via @watch -g@
 
 [announcement]http://www.freelists.org/post/procps/procps-333-released
 [make]http://kent.spillner.org/blog/work/2009/12/30/make-all-environments.html
 [merge]https://gitorious.org/procps/procps/merge_requests/1
+[openssh]http://www.openssh.org/
 [procps]http://procps.sf.net/
+[ttyperl]http://perldoc.perl.org/functions/-X.html
+[ttypython]http://docs.python.org/library/stdtypes.html#file.isatty
+[ttyruby]http://www.ruby-doc.org/core-1.9.3/IO.html#method-i-tty-3F
+[ttyshell]http://linux.die.net/man/1/tty
