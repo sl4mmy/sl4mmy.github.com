@@ -7,9 +7,9 @@ const US_COUNTY_POPULATION_DATASET = "./data/census-bureau-us-county-population-
 
 const US_STATE_FIPS_CODE_MAPPING_DATASET = "./data/state-level-fips-code-mapping.csv";
 
-// const US_TOPOJSON_DATA = "https://d3js.org/us-10m.v1.json";
+// const US_TOPOJSON_DATASET = "https://d3js.org/us-10m.v1.json";
 // const US_TOPOJSON_DATASET = "./data/us-10m.v1.json";
-const US_TOPOJSON_DATA = "https://cdn.jsdelivr.net/npm/us-atlas@3/counties-albers-10m.json";
+const US_TOPOJSON_DATASET = "https://cdn.jsdelivr.net/npm/us-atlas@3/counties-albers-10m.json";
 // const US_TOPOJSON_DATASET = "./data/counties-albers-10m.json";
 
 const margin = {
