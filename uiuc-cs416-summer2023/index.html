@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>kspillne - UIUC CS416 Summer 2023 Final Project</title>
+
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-annotation/2.5.1/d3-annotation.min.js"></script> -->
+  <script src="https://unpkg.com/topojson-client@3"></script>
+</head>
+<body>
+  <div class="content">
+    <h1>Our Warming Planet</h1>
+
+    <h4>
+      Annual Average Surface Temperature (°F)
+    </h4>
+    <div class="svg-visualization" id="scene-1">
+      <p>
+        Annual average surface temperatures have risen for the past forty years.
+        In 2020, annual average surface temperatures in the northern hemisphere
+        were 1.36 degrees Fahrenheit higher than the historical average
+        temperature between 1901 and 2000.
+        The previous record was only set four years prior, in 2016, when annual
+        average temperatures were 1.34 degrees higher than the historical
+        average.
+      </p>
+
+      <p>
+        This chart plots annual average surface temperature anomalies, in
+        degrees Fahrenheit, for the northern hemisphere from 1880 to 2022, the
+        most recent year for which data is available.
+        Anomalies are measured from the 1901-2000 historical average (mean).
+      </p>
+
+      <p>
+        Source:
+        <a href="https://www.ncei.noaa.gov/access/monitoring/climate-at-a-glance/global/time-series/nhem/land_ocean/ytd/12/1880-2022/data.csv">
+          The National Oceanic and Atmospheric Administration's (NOAA) National
+          Centers for Environmental Information Climate at a Glance - Global
+          Mapping
+        </a>
+        .
+      </p>
+    </div>
+
+    <h4>
+      Monthly Average Surface Temperature (°F) by U.S. County
+    </h4>
+    <div class="svg-visualization" id="scene-2">
+      <p>
+        Unfortunately, we're all too familiar with rising temperatures in the U.S.
+        Every year it feels like summer keeps getting hotter.
+        Especially this year, with the July we're having!
+      </p>
+
+      <p>
+        This map shows monthly average surface temperature anomalies, in
+        degrees Fahrenheit, for the continental United States (data for Alaska
+        and Hawaii was unavailable) from June 2022.
+        Anomalies are measured from the 1901-2000 historical average (mean).
+      </p>
+
+      <p>
+        Source:
+        <a href="https://www.ncei.noaa.gov/access/monitoring/climate-at-a-glance/county/mapping/110-tavg-202206-1.csv">
+          The National Oceanic and Atmospheric Administration's (NOAA) National
+          Centers for Environmental Information Climate at a Glance - County
+          Mapping
+        </a>
+        .
+      </p>
+    </div>
+
+    <h4>
+      Daily Temperature (°F) in Chicago, June 2022
+    </h4>
+    <div class="svg-visualization" id="scene-3">
+      <p>
+        Of course, averaging temperatures annually or monthly misses a lot of
+        important details!
+        Most people are familiar with local weather forecasts reporting
+        temperatures in terms of "highs" and "lows."
+      </p>
+
+      <p>
+        This chart shows daily high, low, and average temperatures in Chicago,
+        IL from June 2022.
+        The blue line plots the historical average temperature in Chicago on
+        each day of June.
+        The historical average is computed using official records from 1901 to
+        2000.
+      </p>
+
+      <p>
+        Source:
+        <a href="https://www.weather.gov/wrh/Climate?wfo=lot">
+          NOWData - NOAA Online Weather Data Chicago Area, IL Climatological
+          Data for June 2022
+        </a>
+        .
+      </p>
+    </div>
+  </div>
+
+  <script src="js/d3-color-legend.js"></script>
+  <script src="js/globals.js"></script>
+  <script src="js/scene-1.js"></script>
+  <script src="js/scene-2.js"></script>
+  <script src="js/scene-3.js"></script>
+  <!-- <script src="js/main.js"></script> -->
+</body>
+</html>

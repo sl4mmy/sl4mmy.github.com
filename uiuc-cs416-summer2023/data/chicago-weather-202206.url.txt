@@ -1,0 +1,3 @@
+NOWData - NOAA Online Weather Data
+Chicago Area, IL Climatological Data for June 2022
+https://www.weather.gov/wrh/Climate?wfo=lot

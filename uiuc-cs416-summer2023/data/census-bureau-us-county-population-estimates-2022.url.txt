@@ -1,0 +1,5 @@
+Annual Estimates of the Resident Population for Counties in the United States:
+  April 1, 2020 to July 1, 2022 (CO-EST2022-POP)
+Source: U.S. Census Bureau, Population Division
+Release Date: March 2023
+https://www2.census.gov/programs-surveys/popest/tables/2020-2022/counties/totals/co-est2022-pop.xlsx

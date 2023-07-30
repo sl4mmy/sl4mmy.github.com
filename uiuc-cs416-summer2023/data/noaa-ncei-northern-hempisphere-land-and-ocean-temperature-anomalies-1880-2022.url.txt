@@ -1,0 +1,1 @@
+https://www.ncei.noaa.gov/access/monitoring/climate-at-a-glance/global/time-series/nhem/land_ocean/ytd/12/1880-2022/data.csv
