@@ -93,6 +93,50 @@ d3.csv(GLOBAL_AVERAGE_TEMPERATURE_DATASET, (d) => ({
     .attr('stroke', "url('#scene-1-color-gradient')")
     .attr('stroke-width', 2.5);
 
+  const lastBelowBaselineDatume = data[data.length - 47]; // 1976
+  svg.append('text')
+    .text(`${lastBelowBaselineDatume.year} - ${lastBelowBaselineDatume.anomaly} (°F)`)
+    .attr('x', yearScale(lastBelowBaselineDatume.year) + 13)
+    .attr('y', anomalyScale(lastBelowBaselineDatume.anomaly) + 20)
+    .attr('alignment-baseline', 'hanging')
+    .attr('fill', "url('#scene-1-color-gradient')");
+  svg.append('line')
+    .attr('x1', yearScale(lastBelowBaselineDatume.year) + 3)
+    .attr('y1', anomalyScale(lastBelowBaselineDatume.anomaly) + 3)
+    .attr('x2', yearScale(lastBelowBaselineDatume.year) + 13)
+    .attr('y2', anomalyScale(lastBelowBaselineDatume.anomaly) + 20)
+    .attr('stroke', "url('#scene-1-color-gradient')")
+    .attr('stroke-width', 2);
+
+  const recordHighDatum = data[data.length - 3]; // 2020
+  svg.append('text')
+    .text(`${recordHighDatum.year} - ${recordHighDatum.anomaly} (°F)`)
+    .attr('x', yearScale(recordHighDatum.year) + 13)
+    .attr('y', anomalyScale(recordHighDatum.anomaly) - 20)
+    .attr('fill', 'orange');
+  svg.append('line')
+    .attr('x1', yearScale(recordHighDatum.year))
+    .attr('y1', anomalyScale(recordHighDatum.anomaly) - 3)
+    .attr('x2', yearScale(recordHighDatum.year) + 10)
+    .attr('y2', anomalyScale(recordHighDatum.anomaly) - 20)
+    .attr('stroke', 'orange')
+    .attr('stroke-width', 2);
+
+  const previousRecordDatum = data[data.length - 7]; // 2016
+  svg.append('text')
+    .text(`${previousRecordDatum.year} - ${previousRecordDatum.anomaly} (°F)`)
+    .attr('x', yearScale(previousRecordDatum.year) - 18)
+    .attr('y', anomalyScale(previousRecordDatum.anomaly) - 23)
+    .attr('text-anchor', 'end')
+    .attr('fill', 'orange');
+  svg.append('line')
+    .attr('x1', yearScale(previousRecordDatum.year) + 2)
+    .attr('y1', anomalyScale(previousRecordDatum.anomaly) - 3)
+    .attr('x2', yearScale(previousRecordDatum.year) - 25)
+    .attr('y2', anomalyScale(previousRecordDatum.anomaly) - 20)
+    .attr('stroke', 'orange')
+    .attr('stroke-width', 2);
+
   svg
     .append('text')
       .text('Zero baseline (°F)')
