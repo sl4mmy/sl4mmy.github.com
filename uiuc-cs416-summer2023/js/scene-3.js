@@ -82,6 +82,19 @@ d3.csv(CHICAGO_WEATHER_DATASET, (d) => ({
 
   const finalDatum = data[data.length - 1];
   svg.append('text')
+    .text('Daily high (°F)')
+    .attr('x', dayScale(finalDatum.date) + 13)
+    .attr('y', tempScale(finalDatum.high) - 20)
+    .attr('fill', orange);
+  svg.append('line')
+    .attr('x1', dayScale(finalDatum.date))
+    .attr('y1', tempScale(finalDatum.high) - 3)
+    .attr('x2', dayScale(finalDatum.date) + 10)
+    .attr('y2', tempScale(finalDatum.high) - 20)
+    .attr('stroke', orange)
+    .attr('stroke-width', 2);
+
+  svg.append('text')
     .text('Daily avg (°F)')
     .attr('x', dayScale(lastDate) + 10)
     .attr('y', tempScale(finalDatum.average))
@@ -96,36 +109,17 @@ d3.csv(CHICAGO_WEATHER_DATASET, (d) => ({
     .attr('fill', blue)
     .attr('opacity', 0.75);
 
-  const innerChart = svg
-    .append('g')
-      .attr('transform', `translate(${margin.left}, ${margin.top})`);
-
-  const maxDailyHigh = data[20];
-  svg.append('text')
-    .text('Daily high (°F)')
-    .attr('x', dayScale(maxDailyHigh.date) + 13)
-    .attr('y', tempScale(maxDailyHigh.high) - 20)
-    .attr('fill', orange);
-  svg.append('line')
-    .attr('x1', dayScale(maxDailyHigh.date))
-    .attr('y1', tempScale(maxDailyHigh.high) - 3)
-    .attr('x2', dayScale(maxDailyHigh.date) + 10)
-    .attr('y2', tempScale(maxDailyHigh.high) - 20)
-    .attr('stroke', orange)
-    .attr('stroke-width', 2);
-
-  const minDailyLow = data[18];
   svg.append('text')
     .text('Daily Low (°F)')
-    .attr('x', dayScale(minDailyLow.date) + 13)
-    .attr('y', tempScale(minDailyLow.low) + 20)
+    .attr('x', dayScale(finalDatum.date) + 13)
+    .attr('y', tempScale(finalDatum.low) + 20)
     .attr('dominant-baseline', 'hanging')
     .attr('fill', orange);
   svg.append('line')
-    .attr('x1', dayScale(minDailyLow.date))
-    .attr('y1', tempScale(minDailyLow.low) + 3)
-    .attr('x2', dayScale(minDailyLow.date) + 10)
-    .attr('y2', tempScale(minDailyLow.low) + 20)
+    .attr('x1', dayScale(finalDatum.date))
+    .attr('y1', tempScale(finalDatum.low) + 3)
+    .attr('x2', dayScale(finalDatum.date) + 10)
+    .attr('y2', tempScale(finalDatum.low) + 20)
     .attr('stroke', orange)
     .attr('stroke-width', 2);
 });
