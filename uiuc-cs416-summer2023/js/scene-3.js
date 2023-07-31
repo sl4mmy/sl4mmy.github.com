@@ -61,7 +61,7 @@ d3.csv(CHICAGO_WEATHER_DATASET, (d) => ({
     .attr('fill', orange)
     .attr('fill-opacity', 0.2);
 
-  const tooltipHeight = 100;
+  const tooltipHeight = 60;
   const tooltipWidth = 250;
   const tooltip = svg.append('g')
     .attr('class', 'tooltip')
@@ -85,9 +85,7 @@ d3.csv(CHICAGO_WEATHER_DATASET, (d) => ({
   const showTooltip = (e, d) => {
     const labels = [
       `June ${d3.timeFormat('%d')(d.date)}, 2022`,
-      `High - ${d.high}°F`,
-      `Low - ${d.low}°F`,
-      `Avg - ${d.average}°F (anomaly ${d.anomaly} °F)`,
+      `Daily avg - ${d.average}°F`,
     ];
 
     tooltipText.selectAll('tspan')
@@ -146,18 +144,68 @@ d3.csv(CHICAGO_WEATHER_DATASET, (d) => ({
     const datum = data[day - 1];
 
     const cx = dayScale(datum.date);
+    const anomalyAnnotationXOffset = (cx <= (maxWidth - margin.right - 45)) ?
+      ((day != 15) ? cx + 45 : cx) : cx - 50;
+    const anomalyAnnotationYOffset = (datum.low < (datum.average - datum.anomaly)) ?
+      tempScale(datum.low) + 25 : tempScale(datum.average - datum.anomaly) + 25;
 
     svg.selectAll('.hover')
       .remove();
+    svg.append('text')
+      .text(`${datum.high} °F`)
+      .attr('x', dayScale(datum.date))
+      .attr('y', tempScale(datum.high) - 33)
+      .attr('fill', orange)
+      .attr('text-anchor', 'middle')
+      .attr('dominant-baseline', 'bottom')
+      .attr('class', 'hover')
+      .transition()
+      .duration(200)
+      .attr('opacity', 0.85);
+    svg.append('text')
+      .text(`${datum.low} °F`)
+      .attr('x', dayScale(datum.date))
+      .attr('y', tempScale(datum.low) + 33)
+      .attr('fill', orange)
+      .attr('text-anchor', 'middle')
+      .attr('dominant-baseline', 'hanging')
+      .attr('class', 'hover')
+      .transition()
+      .duration(200)
+      .attr('opacity', 0.85);
+    svg.append('text')
+      .text(`${datum.average - datum.anomaly} °F`)
+      .attr('x', anomalyAnnotationXOffset + 5)
+      .attr('y', anomalyAnnotationYOffset + 5)
+      .attr('fill', blue)
+      .attr('text-anchor', 'middle')
+      .attr('dominant-baseline', 'hanging')
+      .attr('class', 'hover')
+      .transition()
+      .duration(200)
+      .attr('opacity', 0.5);
     svg.append('line')
       .attr('x1', cx)
-      .attr('y1', tempScale(datum.low))
+      .attr('y1', tempScale(datum.low) + 25)
       .attr('x2', cx)
-      .attr('y2', tempScale(datum.high))
+      .attr('y2', tempScale(datum.high) - 25)
       .attr('stroke', orange)
       .attr('stroke-width', 3.0)
       .attr('class', 'hover')
+      .transition()
+      .duration(200)
       .attr('opacity', 0.35);
+    svg.append('line')
+      .attr('x1', cx)
+      .attr('y1', tempScale(datum.average - datum.anomaly))
+      .attr('x2', anomalyAnnotationXOffset)
+      .attr('y2', anomalyAnnotationYOffset)
+      .attr('stroke', blue)
+      .attr('stroke-width', 3.0)
+      .attr('class', 'hover')
+      .transition()
+      .duration(200)
+      .attr('opacity', 0.15);
 
     showTooltip(e, datum);
   };
@@ -179,7 +227,7 @@ d3.csv(CHICAGO_WEATHER_DATASET, (d) => ({
     .attr('d', anomalyCurve(data))
     .attr('fill', 'none')
     .attr('stroke', blue)
-    .attr('stroke-opacity', 0.75);
+    .attr('stroke-opacity', 0.5);
 
   svg.append('path')
     .attr('d', averageTempCurve(data))
