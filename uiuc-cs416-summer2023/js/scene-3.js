@@ -61,13 +61,69 @@ d3.csv(CHICAGO_WEATHER_DATASET, (d) => ({
     .attr('fill', orange)
     .attr('fill-opacity', 0.2);
 
+  const tooltipHeight = 100;
+  const tooltipWidth = 250;
+  const tooltip = svg.append('g')
+    .attr('class', 'tooltip')
+    .style('opacity', 0);
+  tooltip.append('rect')
+    .attr('width', tooltipWidth)
+    .attr('height', tooltipHeight)
+    .attr('rx', 25)
+    .attr('ry', 25)
+    .attr('fill', orange)
+    .attr('fill-opacity', 0.85);
+  const tooltipText = tooltip.append('text')
+    .attr('text-anchor', 'middle')
+    .attr('dominant-baseline', 'middle')
+    .attr('fill', 'white')
+    .attr('fill-opacity', 1.0)
+    .attr('x', tooltipWidth / 2)
+    .attr('y', tooltipHeight / 2 + 1)
+    .style('font-weight', 900);
+
   svg.selectAll('circle')
     .data(data)
     .join('circle')
       .attr('r', 4)
       .attr('cx', (d) => dayScale(d.date))
       .attr('cy', (d) => tempScale(d.average))
-      .attr('fill', orange);
+      .attr('fill', orange)
+      .on('mouseenter', (e, d) => {
+         const labels = [
+           `June ${d3.timeFormat('%d')(d.date)}, 2022`,
+           `High - ${d.high}°F`,
+           `Low - ${d.low}°F`,
+           `Avg - ${d.average}°F (anomaly ${d.anomaly} °F)`,
+         ];
+
+         tooltipText.selectAll('tspan')
+           .remove();
+         tooltipText.selectAll('tspan')
+           .data(labels)
+           .join('tspan')
+             .text((d) => d)
+             .attr('x', tooltipWidth / 2)
+             .attr('y', 20)
+             .attr('dy', (d, i) => i * 20);
+
+         const cx = e.target.getAttribute('cx');
+         const cy = e.target.getAttribute('cy');
+         const x = cx - 0.5 * tooltipWidth;
+         const y = cy - 1.0 * tooltipHeight;
+         tooltip.attr('transform', `translate(${x}, 0)`)
+           .transition()
+           .duration(500)
+           .attr('transform', `translate(${x}, ${y})`)
+           .style('opacity', 0.85);
+      }).on('mouseleave', (e, d) => {
+         const cx = e.target.getAttribute('cx');
+         const x = cx - 0.5 * tooltipWidth;
+         tooltip.transition()
+           .duration(200)
+           .attr('transform', `translate(${x}, 0)`)
+           .style('opacity', 0);
+      });
 
   svg.append('path')
     .attr('d', anomalyCurve(data))
