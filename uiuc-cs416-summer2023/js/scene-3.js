@@ -56,11 +56,6 @@ d3.csv(CHICAGO_WEATHER_DATASET, (d) => ({
       .style('font-family', 'Roboto, sans-serif')
       .style('font-size', '14px');
 
-  svg.append('path')
-    .attr('d', shadedArea(data))
-    .attr('fill', orange)
-    .attr('fill-opacity', 0.2);
-
   const tooltipHeight = 100;
   const tooltipWidth = 250;
   const tooltip = svg.append('g')
@@ -82,6 +77,72 @@ d3.csv(CHICAGO_WEATHER_DATASET, (d) => ({
     .attr('y', tooltipHeight / 2 + 1)
     .style('font-weight', 900);
 
+  const showTooltip = (e, d) => {
+    const labels = [
+      `June ${d3.timeFormat('%d')(d.date)}, 2022`,
+      `High - ${d.high}°F`,
+      `Low - ${d.low}°F`,
+      `Avg - ${d.average}°F (anomaly ${d.anomaly} °F)`,
+    ];
+
+    tooltipText.selectAll('tspan')
+      .remove();
+    tooltipText.selectAll('tspan')
+      .data(labels)
+      .join('tspan')
+        .text((d) => d)
+        .attr('x', tooltipWidth / 2)
+        .attr('y', 20)
+        .attr('dy', (d, i) => i * 20);
+
+    const mouse = d3.pointer(e);
+    const date = dayScale.invert(mouse[0]);
+    const day = Number(d3.timeFormat('%d')(date));
+    const datum = data[day - 1];
+
+    const cx = dayScale(datum.date);
+    const cy = tempScale(datum.average);
+    const x = cx - 0.5 * tooltipWidth;
+    const y = cy - 1.25 * tooltipHeight;
+    tooltip.attr('transform', `translate(${x}, 0)`)
+      .transition()
+      .duration(300)
+      .attr('transform', `translate(${x}, ${y})`)
+      .style('opacity', 0.85);
+  };
+
+  const hideTooltip = (e) => {
+    const mouse = d3.pointer(e);
+    const date = dayScale.invert(mouse[0]);
+    const day = Number(d3.timeFormat('%d')(date));
+    const datum = data[day - 1];
+
+    const cx = dayScale(datum.date);
+    const x = cx - 0.5 * tooltipWidth;
+    tooltip.transition()
+      .duration(200)
+      .attr('transform', `translate(${x}, -${tooltipHeight + 25})`)
+      .style('opacity', 0);
+  };
+
+  const showNearestTooltip = (e) => {
+    const mouse = d3.pointer(e);
+    const date = dayScale.invert(mouse[0]);
+    const day = Number(d3.timeFormat('%d')(date));
+    const datum = data[day - 1];
+
+    showTooltip(e, datum);
+  };
+
+  svg.append('path')
+    .attr('d', shadedArea(data))
+    .attr('fill', orange)
+    .attr('fill-opacity', 0.2)
+    .on('mouseenter', showNearestTooltip)
+    .on('mouseover', showNearestTooltip)
+    .on('mousemove', showNearestTooltip)
+    .on('mouseleave', hideTooltip);
+
   svg.selectAll('circle')
     .data(data)
     .join('circle')
@@ -89,41 +150,9 @@ d3.csv(CHICAGO_WEATHER_DATASET, (d) => ({
       .attr('cx', (d) => dayScale(d.date))
       .attr('cy', (d) => tempScale(d.average))
       .attr('fill', orange)
-      .on('mouseenter', (e, d) => {
-         const labels = [
-           `June ${d3.timeFormat('%d')(d.date)}, 2022`,
-           `High - ${d.high}°F`,
-           `Low - ${d.low}°F`,
-           `Avg - ${d.average}°F (anomaly ${d.anomaly} °F)`,
-         ];
-
-         tooltipText.selectAll('tspan')
-           .remove();
-         tooltipText.selectAll('tspan')
-           .data(labels)
-           .join('tspan')
-             .text((d) => d)
-             .attr('x', tooltipWidth / 2)
-             .attr('y', 20)
-             .attr('dy', (d, i) => i * 20);
-
-         const cx = e.target.getAttribute('cx');
-         const cy = e.target.getAttribute('cy');
-         const x = cx - 0.5 * tooltipWidth;
-         const y = cy - 1.0 * tooltipHeight;
-         tooltip.attr('transform', `translate(${x}, 0)`)
-           .transition()
-           .duration(500)
-           .attr('transform', `translate(${x}, ${y})`)
-           .style('opacity', 0.85);
-      }).on('mouseleave', (e, d) => {
-         const cx = e.target.getAttribute('cx');
-         const x = cx - 0.5 * tooltipWidth;
-         tooltip.transition()
-           .duration(200)
-           .attr('transform', `translate(${x}, 0)`)
-           .style('opacity', 0);
-      });
+      .on('mouseenter', showTooltip)
+      .on('mouseover', showTooltip)
+      .on('mouseleave', hideTooltip);
 
   svg.append('path')
     .attr('d', anomalyCurve(data))
