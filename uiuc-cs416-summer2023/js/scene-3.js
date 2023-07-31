@@ -56,6 +56,11 @@ d3.csv(CHICAGO_WEATHER_DATASET, (d) => ({
       .style('font-family', 'Roboto, sans-serif')
       .style('font-size', '14px');
 
+  svg.append('path')
+    .attr('d', shadedArea(data))
+    .attr('fill', orange)
+    .attr('fill-opacity', 0.2);
+
   const tooltipHeight = 100;
   const tooltipWidth = 250;
   const tooltip = svg.append('g')
@@ -112,6 +117,9 @@ d3.csv(CHICAGO_WEATHER_DATASET, (d) => ({
   };
 
   const hideTooltip = (e) => {
+    svg.selectAll('.hover')
+      .remove();
+
     const mouse = d3.pointer(e);
     const date = dayScale.invert(mouse[0]);
     const day = Number(d3.timeFormat('%d')(date));
@@ -127,18 +135,34 @@ d3.csv(CHICAGO_WEATHER_DATASET, (d) => ({
 
   const showNearestTooltip = (e) => {
     const mouse = d3.pointer(e);
+
+    if (mouse[0] < margin.left || mouse[0] > (maxWidth - margin.right) ||
+      mouse[1] < margin.top || mouse[1] > (maxHeight - margin.bottom)) {
+      return;
+    }
+
     const date = dayScale.invert(mouse[0]);
     const day = Number(d3.timeFormat('%d')(date));
     const datum = data[day - 1];
 
+    const cx = dayScale(datum.date);
+
+    svg.selectAll('.hover')
+      .remove();
+    svg.append('line')
+      .attr('x1', cx)
+      .attr('y1', tempScale(datum.low))
+      .attr('x2', cx)
+      .attr('y2', tempScale(datum.high))
+      .attr('stroke', orange)
+      .attr('stroke-width', 3.0)
+      .attr('class', 'hover')
+      .attr('opacity', 0.35);
+
     showTooltip(e, datum);
   };
 
-  svg.append('path')
-    .attr('d', shadedArea(data))
-    .attr('fill', orange)
-    .attr('fill-opacity', 0.2)
-    .on('mouseenter', showNearestTooltip)
+  svg.on('mouseenter', showNearestTooltip)
     .on('mouseover', showNearestTooltip)
     .on('mousemove', showNearestTooltip)
     .on('mouseleave', hideTooltip);
@@ -149,10 +173,7 @@ d3.csv(CHICAGO_WEATHER_DATASET, (d) => ({
       .attr('r', 4)
       .attr('cx', (d) => dayScale(d.date))
       .attr('cy', (d) => tempScale(d.average))
-      .attr('fill', orange)
-      .on('mouseenter', showTooltip)
-      .on('mouseover', showTooltip)
-      .on('mouseleave', hideTooltip);
+      .attr('fill', orange);
 
   svg.append('path')
     .attr('d', anomalyCurve(data))
